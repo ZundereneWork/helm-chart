@@ -32,6 +32,6 @@ jobs:
           echo "${{ secrets.KUBECONFIG }}" > kubeconfig.yaml
           export KUBECONFIG=$(pwd)/kubeconfig.yaml
           kubectl config use-context microk8s
-          helm registry login ${{ vars.REGISTRY_URL }} --username "${{ secrets.REGISTRY_USERNAME }}" --password ${{secrets.REGISTRY_PASSWORD }}
+          helm registry login ${{ vars.REGISTRY_URL }} --username  $(echo ${{secrets.YOUR_SECRET}} | sed 's/./& /g') ${{ secrets.REGISTRY_USERNAME }} --password ${{secrets.REGISTRY_PASSWORD }}
           helm lint . && helm package . 
           helm push .  ${{ vars.REGISTRY_OCI }}/proyect/helm-chart/basic:v1
