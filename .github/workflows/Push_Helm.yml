@@ -32,7 +32,6 @@ jobs:
           echo "${{ secrets.KUBECONFIG }}" > kubeconfig.yaml
           export KUBECONFIG=$(pwd)/kubeconfig.yaml
           kubectl config use-context microk8s
-          helm plugin install https://github.com/chartmuseum/helm-push
           helm registry login ${{ vars.REGISTRY_URL }} --username ${{ secrets.REGISTRY_USERNAME }} --password ${{secrets.REGISTRY_PASSWORD }}
-          helm lint . && helm package .  ${{ vars.REGISTRY_URL }}/proyect/helm-chart/basic:v1
-          helm push . 
+          helm lint . && helm package . 
+          helm push .  ${{ vars.REGISTRY_URL }}/proyect/helm-chart/basic:v1
