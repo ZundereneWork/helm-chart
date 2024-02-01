@@ -35,4 +35,4 @@ jobs:
           helm registry login ${{ vars.REGISTRY_URL }} --username 'robot$test' --password ${{secrets.REGISTRY_PASSWORD }}
           helm lint . && helm package . 
           ls -la
-          helm push .  ${{ vars.REGISTRY_OCI }}/proyect/helm-chart/basic:v1
+          helm push .  ${{ vars.REGISTRY_OCI }}/proyect/helm-chart/basic-service:v1
