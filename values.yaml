@@ -9,7 +9,7 @@ PVC:
 Ingress:
     host: ''
 Volumes:
-    config:
+      config:
         type: volumenClain
         mountPath: /config
       serie:
