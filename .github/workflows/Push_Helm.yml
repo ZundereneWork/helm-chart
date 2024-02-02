@@ -8,19 +8,20 @@ on:
 jobs:
   Deploy_Up_Helm:
     runs-on: arc-runner-set
-    name: 🚀Deploy up helm
+    name: 🚀 Deploy up helm
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
       
-      - name: Setup enviroment
+      - name: 📝 Setup enviroment
         run: |
-            echo "::group:: Install kubectl"
+            echo "::group::Install yq"
             wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O /usr/bin/yq &&\
             chmod +x /usr/bin/yq
+            echo "::endgroup::"
+            echo "::group::Load env"
             export NAME_CHART=$(cat Chart.yaml | yq '.name' )
             export VERSION=$(cat Chart.yaml | yq '.version' )
-            echo $NAME_CHART
             echo "::endgroup::"
       - name: 💽 Install kubectl
         run: | 
@@ -52,5 +53,5 @@ jobs:
           echo "::group::Install deploy helm"
           helm registry login ${{ vars.REGISTRY_URL }} --username 'robot$test' --password ${{secrets.REGISTRY_PASSWORD }}
           helm lint . && helm package . 
-          helm push basic-service-0.1.0.tgz  ${{ vars.REGISTRY_OCI }}/helm-chart
+          helm push $NAME_CHART-$VERSION.tgz  ${{ vars.REGISTRY_OCI }}/helm-chart
           echo "::endgroup::"
