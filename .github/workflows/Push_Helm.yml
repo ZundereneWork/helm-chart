@@ -20,8 +20,8 @@ jobs:
             chmod +x /usr/bin/yq
             echo "::endgroup::"
             echo "::group::Load env"
-            echo NAME_CHART=$(cat Chart.yaml | yq '.name' ) >> .env
-            echo VERSION=$(cat Chart.yaml | yq '.version' ) >> .env
+            echo NAME_CHART=$(cat Chart.yaml | yq '.name' ) >> $GITHUB_ENV
+            echo VERSION=$(cat Chart.yaml | yq '.version' ) >> $GITHUB_ENV
             echo "::endgroup::"
         env:
           NAME_CHART:
