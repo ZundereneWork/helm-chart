@@ -20,8 +20,8 @@ jobs:
             chmod +x /usr/bin/yq
             echo "::endgroup::"
             echo "::group::Load env"
-            export NAME_CHART=$(cat Chart.yaml | yq '.name' )
-            export VERSION=$(cat Chart.yaml | yq '.version' )
+            echo NAME_CHART=$(cat Chart.yaml | yq '.name' ) >> .env
+            echo VERSION=$(cat Chart.yaml | yq '.version' ) >> .env
             echo "::endgroup::"
       - name: 💽 Install kubectl
         run: | 
