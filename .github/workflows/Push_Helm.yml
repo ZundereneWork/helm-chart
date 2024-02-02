@@ -23,6 +23,9 @@ jobs:
             echo NAME_CHART=$(cat Chart.yaml | yq '.name' ) >> .env
             echo VERSION=$(cat Chart.yaml | yq '.version' ) >> .env
             echo "::endgroup::"
+        env:
+          NAME_CHART:
+          VERSION:
       - name: 💽 Install kubectl
         run: | 
             echo "::group::Install kubectl"
@@ -55,5 +58,5 @@ jobs:
           helm lint . && helm package . 
           echo $NAME_CHART
           echo $VERSION
-          helm push "$NAME_CHART-$VERSION.tgz"  ${{ vars.REGISTRY_OCI }}/helm-chart
+          helm push ${{ env.NAME_CHART }}-${{ env.VERSION }}.tgz  ${{ vars.REGISTRY_OCI }}/helm-chart
           echo "::endgroup::"
