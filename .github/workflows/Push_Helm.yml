@@ -56,7 +56,5 @@ jobs:
           echo "::group::Install deploy helm"
           helm registry login ${{ vars.REGISTRY_URL }} --username 'robot$test' --password ${{secrets.REGISTRY_PASSWORD }}
           helm lint . && helm package . 
-          echo $NAME_CHART
-          echo $VERSION
           helm push ${{ env.NAME_CHART }}-${{ env.VERSION }}.tgz  ${{ vars.REGISTRY_OCI }}/helm-chart
           echo "::endgroup::"
