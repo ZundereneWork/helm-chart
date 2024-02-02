@@ -25,7 +25,7 @@ jobs:
             echo "::endgroup::"
       - name: 💽 Install kubectl
         run: | 
-            echo "::group:: Install kubectl"
+            echo "::group::Install kubectl"
             curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
             chmod +x kubectl
             mv kubectl /usr/local/bin
@@ -53,5 +53,5 @@ jobs:
           echo "::group::Install deploy helm"
           helm registry login ${{ vars.REGISTRY_URL }} --username 'robot$test' --password ${{secrets.REGISTRY_PASSWORD }}
           helm lint . && helm package . 
-          helm push $NAME_CHART-$VERSION.tgz  ${{ vars.REGISTRY_OCI }}/helm-chart
+          helm push "$NAME_CHART-$VERSION.tgz"  ${{ vars.REGISTRY_OCI }}/helm-chart
           echo "::endgroup::"
