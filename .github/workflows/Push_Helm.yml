@@ -34,4 +34,4 @@ jobs:
           kubectl config use-context microk8s
           helm registry login ${{ vars.REGISTRY_URL }} --username 'robot$test' --password ${{secrets.REGISTRY_PASSWORD }}
           helm lint . && helm package . 
-          helm push basic-service-0.1.0.tgz  ${{ vars.REGISTRY_OCI }}/proyect/helm-chart
+          helm push basic-service-0.1.0.tgz  ${{ vars.REGISTRY_OCI }}/helm-chart
