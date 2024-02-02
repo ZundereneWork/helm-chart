@@ -12,7 +12,17 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-
+      
+      - name: Setup enviroment
+        run: |
+            echo "::group:: Install kubectl"
+            add-apt-repository ppa:rmescandon/yq
+            apt update
+            apt install yq -y
+            export NAME_CHART = $(cat Chart.yaml | yq '.name' )
+            export VERSION    = $(cat Chart.yaml | yq '.version' )
+            echo $NAME_CHART
+            echo "::endgroup::"
       - name: 💽 Install kubectl
         run: | 
             echo "::group:: Install kubectl"
