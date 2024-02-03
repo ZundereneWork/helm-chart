@@ -6,8 +6,7 @@ Service:
     port: 0
 PVC:
     storageClassName: microk8s-hostpath
-Ingress:
-    host: ''
+
 Volumes:
       config:
         type: volumenClain
