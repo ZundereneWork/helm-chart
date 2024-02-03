@@ -58,7 +58,7 @@ jobs:
           helm registry login ${{ vars.REGISTRY_URL }} --username 'robot$test' --password ${{secrets.REGISTRY_PASSWORD }}
           cd ${{ inputs.choice }}
           helm lint . && helm package . 
-          helm push ${{ env.NAME_CHART }}-${{ env.VERSION }}.tgz  ${{ vars.REGISTRY_OCI }}/helm-chart
+          helm push ${{ env.NAME_CHART }}-${{ env.VERSION }}.tgz  ${{ vars.REGISTRY_OCI }}/helm-chart 
           echo "::endgroup::"
       - name: 📝 Resultado
         run: |
