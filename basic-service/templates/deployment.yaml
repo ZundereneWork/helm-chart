@@ -38,7 +38,7 @@ spec:
       - name: {{ $name }}
       {{- if eq $data.type  "volumenClain" }}
         persistentVolumeClaim:
-          claimName: volumenclain-radarr
+          claimName: pvc-{{ .Values.nameService }}
       {{- else if eq  $data.type  "nfs" }}
         nfs:
             server: {{ $data.server }}
