@@ -1,4 +1,4 @@
 apiVersion: v2
 name: basic-service
 description: Un helm basico para despliegue que requiere un volumen para configuracion y acceso al nas
-version: 0.1.0
+version: 2.0.0
