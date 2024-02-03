@@ -1,16 +1,16 @@
-{{- if .Values.PVC -}}
+{{- range $key, $val := .Values }}
 
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: pvc-{{ .Values.nameService }}
+  name: pvc-{{$key}}
 spec:
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   resources:
     requests:
-      storage: 1Gi
-  storageClassName: {{ .Values.PVC.storageClassName}}
+      storage: {{ $val.PVC.capacity}}
+  storageClassName: {{ $val.PVC.storageClassName}}
 
 {{- end -}}

@@ -1,44 +1,45 @@
-apiVersion: apps/v1
+{{- range $key, $val := .Values }}
+  apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Release.Name }}
+  name: {{ $key }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ .Release.Name }}
+      app: {{ $key  }}
   template:
     metadata:
       labels:
-        app: {{ .Release.Name }}
+        app: {{ $key  }}
     spec:
       containers:
-        - name: {{ .Release.Name }}
-          image: {{ .Values.Image }}
+        - name: {{ $key  }}
+          image: {{ $val.Image }}
           ports:
-            - containerPort: {{ .Values.Service.port }}
+            - containerPort: {{  $val.Service.port }}
           volumeMounts:
-            {{- range $name, $data := .Values.Volumes }}
+            {{- range $name, $data :=  $val.Volumes }}
             - name: {{ $name }}
               mountPath: {{ $data.mountPath }}
             {{- end }}
           readinessProbe:
             tcpSocket:
-              port: {{ .Values.Service.port }}
+              port: {{  $val.Service.port }}
             initialDelaySeconds: 15
             periodSeconds: 10
           livenessProbe:
             tcpSocket:
-              port: {{ .Values.Service.port }}
+              port: {{  $val.Service.port }}
             initialDelaySeconds: 15
             periodSeconds: 10
 
       volumes:
-      {{- range $name, $data := .Values.Volumes }}
+      {{- range $name, $data :=  $val.Volumes }}
       - name: {{ $name }}
       {{- if eq $data.type  "volumenClain" }}
         persistentVolumeClaim:
-          claimName: pvc-{{ $.Values.nameService }}
+          claimName: pvc-{{ $key }}
       {{- else if eq  $data.type  "nfs" }}
         nfs:
             server: {{ $data.server }}
@@ -46,8 +47,7 @@ spec:
       {{- end }}
       {{- end }}
         
-        
----        
+{{ end -}} 
 
 
 

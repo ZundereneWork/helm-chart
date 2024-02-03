@@ -1,24 +1,22 @@
-{{- if .Values.ingress.host -}}
-
+{{- range $key, $val := .Values }}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ .Release.Name }}-ingress
+  name: {{ $key }}-ingress
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
     #nginx.ingress.kubernetes.io/auth-url: http://nginx-ldap-auth.ingress.svc.cluster.local:5555
 spec:
   ingressClassName: nginx
   rules:
-    - host: {{ .Values.Ingress.host }}
+    - host: {{ $val.Ingress.Host }}
       http:
         paths:
-        - path: /
+        - path: /{{ $val.Ingress.prefix }}
           pathType: Prefix
           backend:
             service:
-              name: {{ .Release.Name }}-svc
+              name: {{ $key }}-svc
               port:
-                number: {{ .Values.Service.port }}
-
-{{- end -}}
+                number: {{ $val.Service.port }}
+{{ end -}}
