@@ -69,7 +69,7 @@ jobs:
         run: |
           echo "::group::Install deploy helm"
           helm registry login ${{ vars.REGISTRY_URL }} --username 'robot$test' --password ${{secrets.REGISTRY_PASSWORD }}
-          helm pull  ${{ secrets.REGISTRY_OCI }}/basic-service --version ${{ inputs.version }} 
+          helm pull  ${{ vars.REGISTRY_OCI }}/basic-service --version ${{ inputs.version }} 
           helm upgrade -i ${{inputs.release_name}} ${{ inputs.chart }}-${{ inputs.version }}.tgz -n ${{ inputs.ns }} 
           echo "::endgroup::"
       - name: 📝 Resultado
