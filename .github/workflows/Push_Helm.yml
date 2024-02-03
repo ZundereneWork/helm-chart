@@ -1,9 +1,13 @@
 name: Build and Push helm
 
 on:
-    push: 
-        branches: 
-            - main
+    workflow_dispatch: 
+      inputs:
+        choice:
+          type: choice
+          description: Make template char on push
+          options:
+            - basic-service
         
 jobs:
   Deploy_Up_Helm:
@@ -23,9 +27,6 @@ jobs:
             echo NAME_CHART=$(cat Chart.yaml | yq '.name' ) >> $GITHUB_ENV
             echo VERSION=$(cat Chart.yaml | yq '.version' ) >> $GITHUB_ENV
             echo "::endgroup::"
-        env:
-          NAME_CHART:
-          VERSION:
       - name: 💽 Install kubectl
         run: | 
             echo "::group::Install kubectl"
@@ -55,6 +56,7 @@ jobs:
         run: |
           echo "::group::Install deploy helm"
           helm registry login ${{ vars.REGISTRY_URL }} --username 'robot$test' --password ${{secrets.REGISTRY_PASSWORD }}
+          cd ${{ inputs.choice }}
           helm lint . && helm package . 
           helm push ${{ env.NAME_CHART }}-${{ env.VERSION }}.tgz  ${{ vars.REGISTRY_OCI }}/helm-chart
           echo "::endgroup::"
