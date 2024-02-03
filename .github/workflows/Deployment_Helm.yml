@@ -1,4 +1,4 @@
-name: Build and Push helm
+name: Deploy helm
 
 on:
     workflow_call:
