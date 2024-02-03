@@ -60,3 +60,7 @@ jobs:
           helm lint . && helm package . 
           helm push ${{ env.NAME_CHART }}-${{ env.VERSION }}.tgz  ${{ vars.REGISTRY_OCI }}/helm-chart
           echo "::endgroup::"
+      - name: 📝 Resultado
+        run: |
+          echo "### Upload helm  :rocket:" >> $GITHUB_STEP_SUMMARY
+          echo "- $( helm show chart . ) " >> $GITHUB_STEP_SUMMARY
