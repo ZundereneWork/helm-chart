@@ -1,7 +1,7 @@
 sonarr:
   Image: 'lscr.io/linuxserver/sonarr:latest' 
   Service:
-      port: 7878
+      port: 8989
   PVC:
       storageClassName: microk8s-hostpath
       capacity: 1Gi
@@ -14,23 +14,21 @@ sonarr:
           mountPath: /config
         serie:
           type: nfs
-          mountPath: /movies
+          mountPath: /tv
           server: 192.168.18.10
-          path: /volume1/Multimedia/Peliculas
+          path: /volume1/Multimedia/Series
         descargas:
           type: nfs 
           mountPath: /downloads
           server: 192.168.18.10
           path: /volume1/Descargas
-  
-
 radarr:
-  Image: 'lscr.io/linuxserver/radarr:latest' 
+  Image: 'lscr.io/linuxserver/sonarr:latest' 
   Service:
-      port: 8989
+      port: 7878
   PVC:
       storageClassName: microk8s-hostpath
-      capacity:  1Gi
+      capacity: 1Gi
   Ingress:
     Host: app.thelmalouise.ddns.net
     prefix: radarr
@@ -48,3 +46,5 @@ radarr:
           mountPath: /downloads
           server: 192.168.18.10
           path: /volume1/Descargas
+  
+

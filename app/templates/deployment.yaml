@@ -1,8 +1,10 @@
 {{- range $key, $val := .Values }}
-  apiVersion: apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ $key }}
+  labels:
+    nombre: {{ $key }}
 spec:
   replicas: 1
   selector:
@@ -46,8 +48,8 @@ spec:
             path: {{ $data.path }}
       {{- end }}
       {{- end }}
-        
-{{ end -}} 
+---
+{{- end }} 
 
 
 

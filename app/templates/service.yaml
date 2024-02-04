@@ -9,5 +9,5 @@ spec:
   - port: {{ $val.Service.port }}
   selector:
     app: {{ $key }}
-
-{{- end -}}
+---
+{{- end }}

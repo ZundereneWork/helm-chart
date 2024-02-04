@@ -1,9 +1,10 @@
 {{- range $key, $val := .Values }}
-
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: pvc-{{$key}}
+  labels:
+    nombre: {{ $key }}
 spec:
   accessModes:
     - ReadWriteOnce
@@ -12,5 +13,5 @@ spec:
     requests:
       storage: {{ $val.PVC.capacity}}
   storageClassName: {{ $val.PVC.storageClassName}}
-
-{{- end -}}
+---
+{{- end }}
