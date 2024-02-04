@@ -1,4 +1,4 @@
 apiVersion: v2
-name: basic-service
-description: Un helm basico para despliegue que requiere un volumen para configuracion y acceso al nas
-version: 2.1.0
+name: app
+description: Un helm para desplegar packs de app
+version: 3.0.0
