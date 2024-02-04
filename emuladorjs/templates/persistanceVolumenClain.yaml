@@ -1,0 +1,15 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: pvc-{{ .Release.Name }}
+  labels:
+    nombre: {{ $key }}
+spec:
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  resources:
+    requests:
+      storage: {{ .Values.PVC.capacity}}
+  storageClassName: {{ .Values.PVC.storageClassName}}
+

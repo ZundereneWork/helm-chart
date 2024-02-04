@@ -1,0 +1,20 @@
+
+Image: 'lscr.io/linuxserver/emulatorjs:latest' 
+Service:
+    portWeb: 80
+    portBack: 3000
+PVC:
+    storageClassName: microk8s-hostpath
+    capacity: 1Gi
+Ingress:
+  Host: emulatorjs.thelmalouise.ddns.net
+  prefix: ''
+Volumes:
+      config:
+        type: volumenClain
+        mountPath: /config
+      data:
+        type: nfs
+        mountPath: /data
+        server: 192.168.18.10
+        path: /volume1/Roms/data
