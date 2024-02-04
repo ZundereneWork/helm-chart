@@ -4,7 +4,7 @@ sonarr:
       port: 7878
   PVC:
       storageClassName: microk8s-hostpath
-      capacity: 1gb
+      capacity: 1Gi
   Ingress:
     Host: app.thelmalouise.ddns.net
     prefix: sonarr
@@ -30,7 +30,7 @@ radarr:
       port: 8989
   PVC:
       storageClassName: microk8s-hostpath
-      capacity: 1gb
+      capacity:  1Gi
   Ingress:
     Host: app.thelmalouise.ddns.net
     prefix: radarr
