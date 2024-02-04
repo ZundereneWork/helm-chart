@@ -8,7 +8,7 @@ on:
           description: Make template char on push
           options:
             - app
-            - emulatorjs
+            - emuladorjs
         
 jobs:
   Deploy_Up_Helm:
