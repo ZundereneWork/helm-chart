@@ -1,9 +1,9 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: pvc-{{ .Release.Name }}
+  name: pvc-{{ .Values.name }}
   labels:
-    nombre: {{ .Release.Name }}
+    nombre: {{ .Values.name }}
 spec:
   accessModes:
     - ReadWriteOnce
