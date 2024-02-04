@@ -1,4 +1,4 @@
-
+name: emulatorjs
 Image: 'lscr.io/linuxserver/emulatorjs:latest' 
 Service:
     portWeb: 80

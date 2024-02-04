@@ -1,55 +1,52 @@
-{{- range $key, $val := .Values }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ $key }}
-  labels:
-    nombre: {{ $key }}
+  name: {{ .Values.name }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ $key  }}
+      app: {{ .Values.name  }}
   template:
     metadata:
       labels:
-        app: {{ $key  }}
+        app: {{ .Values.name  }}
     spec:
       containers:
-        - name: {{ $key  }}
-          image: {{ $val.Image }}
+        - name: {{ .Values.name  }}
+          image: {{ .Values.Image }}
           ports:
-            - containerPort: {{  $val.Service.port }}
+            - containerPort: {{ .Values.Service.portWeb }}
+            - containerPort: {{ .Values.Service.portBack }}
           volumeMounts:
-            {{- range $name, $data :=  $val.Volumes }}
+            {{- range $name, $data :=  .Values.Volumes }}
             - name: {{ $name }}
               mountPath: {{ $data.mountPath }}
             {{- end }}
           readinessProbe:
             tcpSocket:
-              port: {{  $val.Service.port }}
+              port: {{  .Values.Service.portWeb }}
             initialDelaySeconds: 15
             periodSeconds: 10
           livenessProbe:
             tcpSocket:
-              port: {{  $val.Service.port }}
+              port: {{  .Values.Service.portWeb }}
             initialDelaySeconds: 15
             periodSeconds: 10
 
       volumes:
-      {{- range $name, $data :=  $val.Volumes }}
+      {{- range $name, $data :=  .Values.Volumes }}
       - name: {{ $name }}
       {{- if eq $data.type  "volumenClain" }}
         persistentVolumeClaim:
-          claimName: pvc-{{ $key }}
+          claimName: pvc-{{ $.Values.name }}
       {{- else if eq  $data.type  "nfs" }}
         nfs:
             server: {{ $data.server }}
             path: {{ $data.path }}
       {{- end }}
       {{- end }}
----
-{{- end }} 
+
 
 
 
