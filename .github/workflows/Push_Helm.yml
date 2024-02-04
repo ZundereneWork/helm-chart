@@ -7,7 +7,7 @@ on:
           type: choice
           description: Make template char on push
           options:
-            - basic-service
+            - app
         
 jobs:
   Deploy_Up_Helm:
