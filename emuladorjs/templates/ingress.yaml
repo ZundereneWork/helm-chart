@@ -1,11 +1,11 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ .Release.Name }}-ingress
+  name: {{ .Values.name }}-ingress
   labels:
-    nombre: {{ .Release.Name }}
+    nombre: {{ .Values.name }}
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/rewrite-target: $1
     #nginx.ingress.kubernetes.io/auth-url: http://nginx-ldap-auth.ingress.svc.cluster.local:5555
 spec:
   ingressClassName: nginx
@@ -17,7 +17,14 @@ spec:
           pathType: Prefix
           backend:
             service:
-              name: {{ .Release.Name }}-svc
+              name: {{ .Values.name }}-svc
               port:
                 number: {{ .Values.Service.portWeb }}
+        - path: /api
+          pathType: Prefix
+          backend:
+            service:
+              name: {{ .Values.name }}-svc-back
+              port:
+                number: {{ .Values.Service.portBack }}
 
