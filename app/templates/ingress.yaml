@@ -9,7 +9,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
     #nginx.ingress.kubernetes.io/auth-url: http://nginx-ldap-auth.ingress.svc.cluster.local:5555
 spec:
-  ingressClassName: nginx
+  ingressClassName: traefik
   rules:
     - host: {{ $val.Ingress.Host }}
       http:
