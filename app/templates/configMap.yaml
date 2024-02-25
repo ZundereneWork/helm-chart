@@ -7,5 +7,5 @@ metadata:
     app: {{$key}}-config
 data:
   {{- $val.ConfigMap | toYaml | nindent 2 }}
-
+---
 {{- end }} 
