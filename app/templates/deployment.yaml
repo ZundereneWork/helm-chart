@@ -48,6 +48,9 @@ spec:
             path: {{ $data.path }}
       {{- end }}
       {{- end }}
+      - name: config-volume
+        configMap:
+          name: {{$key}}
 ---
 {{- end }} 
 
