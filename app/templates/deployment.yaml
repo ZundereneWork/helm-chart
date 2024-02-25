@@ -25,6 +25,8 @@ spec:
             - name: {{ $name }}
               mountPath: {{ $data.mountPath }}
             {{- end }}
+            - name: {{$name}}-config
+              mountPath: /config/
           readinessProbe:
             tcpSocket:
               port: {{  $val.Service.port }}
