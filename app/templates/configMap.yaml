@@ -2,9 +2,9 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{$key}}
+  name: {{$key}}-config
   labels:
-    app: {{$key}}
+    app: {{$key}}-config
 data:
   {{- $val.ConfigMap | toYaml | nindent 2 }}
 

@@ -50,7 +50,7 @@ spec:
       {{- end }}
       - name: config-volume
         configMap:
-          name: {{$key}}
+          name: {{$key}}-config
 ---
 {{- end }} 
 
