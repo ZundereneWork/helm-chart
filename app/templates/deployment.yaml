@@ -18,6 +18,9 @@ spec:
       containers:
         - name: {{ $key  }}
           image: {{ $val.Image }}
+          {{- if $key eq sonarr or $key eq radarr -}}
+          command: ['sh', '-c', 'cp /config_example/config.xml /config/config.xml']
+          {{- end -}}
           ports:
             - containerPort: {{  $val.Service.port }}
           volumeMounts:
@@ -26,7 +29,7 @@ spec:
               mountPath: {{ $data.mountPath }}
             {{- end }}
             - name: config-volume
-              mountPath: /config
+              mountPath: /config_example
           readinessProbe:
             tcpSocket:
               port: {{  $val.Service.port }}
@@ -50,9 +53,11 @@ spec:
             path: {{ $data.path }}
       {{- end }}
       {{- end }}
+      {{- if $key eq sonarr or $key eq radarr -}}
       - name: config-volume
         configMap:
           name: {{$key}}-config
+      {{- end -}}
 ---
 {{- end }} 
 
