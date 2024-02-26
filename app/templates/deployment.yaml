@@ -18,9 +18,9 @@ spec:
       containers:
         - name: {{ $key  }}
           image: {{ $val.Image }}
-          {{- if or (eq $key "sonarr") ( eq $key "radarr") -}}
+{{- if or (eq $key "sonarr") ( eq $key "radarr") }}
           command: ['sh', '-c', 'cp /config_example/config.xml /config/config.xml']
-          {{- end -}}
+{{- end -}}
           ports:
             - containerPort: {{  $val.Service.port }}
           volumeMounts:
@@ -53,7 +53,7 @@ spec:
             path: {{ $data.path }}
       {{- end }}
       {{- end }}
-      {{- if or (eq $key "sonarr") ( eq $key "radarr") -}}
+      {{- if or (eq $key "sonarr") ( eq $key "radarr") }}
       - name: config-volume
         configMap:
           name: {{$key}}-config
