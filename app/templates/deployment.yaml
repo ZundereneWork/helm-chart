@@ -53,7 +53,7 @@ spec:
             path: {{ $data.path }}
       {{- end }}
       {{- end }}
-      {{- if $key eq sonarr or $key eq radarr -}}
+      {{- if or (eq $key "sonarr") ( eq $key "radarr") -}}
       - name: config-volume
         configMap:
           name: {{$key}}-config
