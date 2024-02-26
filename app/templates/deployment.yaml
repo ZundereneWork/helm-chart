@@ -28,8 +28,10 @@ spec:
             - name: {{ $name }}
               mountPath: {{ $data.mountPath }}
             {{- end }}
+            {{- if or (eq $key "sonarr") ( eq $key "radarr") }}
             - name: config-volume
               mountPath: /config_example
+            {{- end }}
           readinessProbe:
             tcpSocket:
               port: {{  $val.Service.port }}
