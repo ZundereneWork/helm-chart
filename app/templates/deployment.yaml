@@ -18,9 +18,6 @@ spec:
       containers:
         - name: {{ $key  }}
           image: {{ $val.Image }}
-{{- if or (eq $key "sonarr") ( eq $key "radarr") }}
-          command: ['sh', '-c', 'cp /config_example/config.xml /config/config.xml']
-{{- end }}
           ports:
             - containerPort: {{  $val.Service.port }}
           volumeMounts:
@@ -42,6 +39,12 @@ spec:
               port: {{  $val.Service.port }}
             initialDelaySeconds: 15
             periodSeconds: 10
+          {{- if or (eq $key "sonarr") ( eq $key "radarr") }}
+          lifecycle:
+            postStart:
+              exec:
+                command: ['sh', '-c', 'cp /config_example/config.xml /config/config.xml']
+{{- end }}
 
       volumes:
       {{- range $name, $data :=  $val.Volumes }}
