@@ -18,7 +18,7 @@ spec:
       containers:
         - name: {{ $key  }}
           image: {{ $val.Image }}
-          {{- if $key eq 'sonarr' or $key eq 'radarr' -}}
+          {{- if or (eq $key "sonarr") ( eq $key "radarr") -}}
           command: ['sh', '-c', 'cp /config_example/config.xml /config/config.xml']
           {{- end -}}
           ports:
