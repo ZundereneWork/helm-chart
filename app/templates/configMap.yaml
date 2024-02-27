@@ -1,5 +1,5 @@
 {{- range $key, $val := .Values }}
-{{- if or (eq $key "sonarr") ( eq $key "radarr") }}
+{{- if or (eq $key "sonarr") ( eq $key "radarr")  ( eq $key "prowlarr") }}
 apiVersion: v1
 kind: ConfigMap
 metadata:

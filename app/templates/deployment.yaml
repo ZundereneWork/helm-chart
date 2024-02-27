@@ -25,7 +25,7 @@ spec:
             - name: {{ $name }}
               mountPath: {{ $data.mountPath }}
             {{- end }}
-            {{- if or (eq $key "sonarr") ( eq $key "radarr") }}
+            {{- if or (eq $key "sonarr") ( eq $key "radarr")  ( eq $key "prowlarr") }}
             - name: config-volume
               mountPath: /config_example
             {{- end }}
@@ -39,7 +39,7 @@ spec:
               port: {{  $val.Service.port }}
             initialDelaySeconds: 15
             periodSeconds: 10
-          {{- if or (eq $key "sonarr") ( eq $key "radarr") }}
+          {{- if or (eq $key "sonarr") ( eq $key "radarr") ( eq $key "prowlarr") }}
           lifecycle:
             postStart:
               exec:
@@ -58,7 +58,7 @@ spec:
             path: {{ $data.path }}
       {{- end }}
       {{- end }}
-      {{- if or (eq $key "sonarr") ( eq $key "radarr") }}
+      {{- if or (eq $key "sonarr") ( eq $key "radarr")  ( eq $key "prowlarr") }}
       - name: config-volume
         configMap:
           name: {{$key}}-config
