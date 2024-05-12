@@ -67,7 +67,7 @@ jobs:
           echo "${{ secrets.KUBECONFIG }}" > ./config
           export KUBECONFIG=$(pwd)/config
           kubectl config use-context microk8s
-          helm registry login ${{ vars.REGISTRY_URL }} --username 'robot$cinema+deploy-runner' --password ${{secrets.REGISTRY_PASSWORD }}
+          helm registry login ${{ vars.REGISTRY_URL }} --username 'robot$deploy-runner' --password ${{secrets.REGISTRY_PASSWORD }}
           helm pull  ${{ vars.REGISTRY_OCI }}/${{ inputs.proyect }}/${{ inputs.chart}} --version ${{ inputs.version }} 
           helm upgrade -i ${{inputs.release_name}} ${{ inputs.chart }}-${{ inputs.version }}.tgz -n ${{ inputs.ns }} -f values.yaml
           echo "::endgroup::"
