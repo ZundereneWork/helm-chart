@@ -56,7 +56,7 @@ jobs:
       - name: 🚀 Deply with Helm
         run: |
           echo "::group::Install deploy helm"
-          helm registry login ${{ vars.REGISTRY_URL }} --username 'robot$test' --password ${{secrets.REGISTRY_PASSWORD }}
+          helm registry login ${{ vars.REGISTRY_URL }} --username 'robot$cinema+deploy-runner' --password ${{secrets.REGISTRY_PASSWORD }}
           cd ${{ inputs.choice }}
           helm lint . && helm package . 
           helm push ${{ env.NAME_CHART }}-${{ env.VERSION }}.tgz  ${{ vars.REGISTRY_OCI }}/helm-chart 
