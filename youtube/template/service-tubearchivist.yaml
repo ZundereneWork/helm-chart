@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: tubearchivist
+spec:
+  type: {{ .Values.tubearchivist.service.type }}
+  ports:
+    - port: {{ .Values.tubearchivist.service.port }}
+      targetPort: {{ .Values.tubearchivist.service.port }}
+  selector:
+    app: tubearchivist
