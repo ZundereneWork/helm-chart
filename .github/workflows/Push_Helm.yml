@@ -9,6 +9,7 @@ on:
           options:
             - app
             - emuladorjs
+            - youtube
         
 jobs:
   Deploy_Up_Helm:
