@@ -21,6 +21,11 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: {{  $val.Service.port }}
+          env:
+          {{- range $key, $value := $val.env }}
+            - name: {{ $key }}
+              value: {{ $value | quote }}
+          {{- end }}
           volumeMounts:
             {{- range $name, $data :=  $val.Volumes }}
             - name: {{ $name }}

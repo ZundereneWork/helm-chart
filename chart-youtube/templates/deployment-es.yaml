@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: archivist-es
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: archivist-es
+  template:
+    metadata:
+      labels:
+        app: archivist-es
+    spec:
+      containers:
+        - name: elasticsearch
+          image: "{{ .Values.elasticsearch.image.repository }}:{{ .Values.elasticsearch.image.tag }}"
+          ports:
+            - containerPort: {{ .Values.elasticsearch.service.port }}
+          env:
+            - name: ELASTIC_PASSWORD
+              value: "{{ .Values.elasticsearch.env.ELASTIC_PASSWORD }}"
+            - name: ES_JAVA_OPTS
+              value: "{{ .Values.elasticsearch.env.ES_JAVA_OPTS }}"
+            - name: xpack.security.enabled
+              value: "{{ .Values.elasticsearch.env.xpack_security_enabled }}"
+            - name: discovery.type
+              value: "{{ .Values.elasticsearch.env.discovery_type }}"
+            - name: path.repo
+              value: "{{ .Values.elasticsearch.env.path_repo }}"
+          volumeMounts:
+            - name: es
+              mountPath: /usr/share/elasticsearch/data
+      volumes:
+        - name: es
+          persistentVolumeClaim:
+            claimName: es
