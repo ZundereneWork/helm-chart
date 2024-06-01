@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tubearchivist
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tubearchivist
+  template:
+    metadata:
+      labels:
+        app: tubearchivist
+    spec:
+      containers:
+      - name: tubearchivist
+        image: "{{ .Values.tubearchivist.image.repository }}:{{ .Values.tubearchivist.image.tag }}"
+        ports:
+          - containerPort: {{ .Values.tubearchivist.service.port }}
+        env:
+          - name: ES_URL
+            value: "{{ .Values.tubearchivist.env.ES_URL }}"
+          - name: REDIS_HOST
+            value: "{{ .Values.tubearchivist.env.REDIS_HOST }}"
+          - name: HOST_UID
+            value: "{{ .Values.tubearchivist.env.HOST_UID }}"
+          - name: HOST_GID
+            value: "{{ .Values.tubearchivist.env.HOST_GID }}"
+          - name: TA_HOST
+            value: "{{ .Values.tubearchivist.env.TA_HOST }}"
+          - name: TA_USERNAME
+            value: "{{ .Values.tubearchivist.env.TA_USERNAME }}"
+          - name: TA_PASSWORD
+            value: "{{ .Values.tubearchivist.env.TA_PASSWORD }}"
+          - name: ELASTIC_PASSWORD
+            value: "{{ .Values.tubearchivist.env.ELASTIC_PASSWORD }}"
+          - name: TZ
+            value: "{{ .Values.tubearchivist.env.TZ }}"
+        volumeMounts:
+          - name: media
+            mountPath: /youtube
+          - name: cache
+            mountPath: /cache
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: {{ .Values.tubearchivist.service.port }}
+          initialDelaySeconds: 30
+          periodSeconds: 120
+      volumes:
+        - name: media
+          persistentVolumeClaim:
+            claimName: media
+        - name: cache
+          persistentVolumeClaim:
+            claimName: cache
