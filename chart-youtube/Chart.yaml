@@ -1,5 +1,5 @@
 apiVersion: v2
 name: chart-youtube
 description: A Helm chart for deploying tubearchivist and its dependencies
-version: 0.1.1.
+version: 0.1.2
 appVersion: "1.0"
