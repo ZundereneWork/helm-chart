@@ -1,4 +1,4 @@
 apiVersion: v2
-name: emuladorjs
+name: chart-emuladorjs
 description: Un helm para desplegar packs de app
 version: 1.0.0
