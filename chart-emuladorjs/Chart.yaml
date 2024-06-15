@@ -1,4 +1,4 @@
 apiVersion: v2
-name: emulejs
+name: emuladorjs
 description: Un helm para desplegar packs de app
 version: 1.0.0

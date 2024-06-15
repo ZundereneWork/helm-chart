@@ -1,4 +1,4 @@
 apiVersion: v2
-name: aplication-base
+name: aplication
 description: Un helm para desplegar packs de app
 version: 4.0.0
