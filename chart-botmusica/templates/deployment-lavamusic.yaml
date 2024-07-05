@@ -33,5 +33,5 @@ spec:
               subPath: .env
       volumes:
         - name: env-volume
-          hostPath:
-            path: /path/to/your/.env
+          configMap:
+            name: lavalink-config
