@@ -23,7 +23,6 @@ spec:
               subPath: application.yml
             - name: plugins-volume
               mountPath: /opt/Lavalink/plugins
-          restartPolicy: OnFailure
       volumes:
         - name: config-volume
           configMap:

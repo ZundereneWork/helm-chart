@@ -31,7 +31,6 @@ spec:
             - name: env-volume
               mountPath: /opt/lavamusic/.env
               subPath: .env
-          restartPolicy: OnFailure
       volumes:
         - name: env-volume
           hostPath:
