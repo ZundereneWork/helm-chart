@@ -24,11 +24,8 @@ lavamusic:
   name: lavamusic
   containerName: lavamusic
   environment:
-    LAVALINK_URL: lavalink:2333
-    LAVALINK_AUTH: youshallnotpass
-    LAVALINK_NAME: LavaMusic
+    LAVALINK_URL: "lavalink:2333"
+    LAVALINK_AUTH: "youshallnotpass"
+    LAVALINK_NAME: "LavaMusic"
     LAVALINK_SECURE: "false"
     # DATABASE_URL: # Uncomment and set the appropriate database URL
-
-networkPolicy:
-  name: lavalink-net
