@@ -17,13 +17,13 @@ spec:
           image: "{{ .Values.image.lavamusic.repository }}:{{ .Values.image.lavamusic.tag }}"
           env:
             - name: LAVALINK_URL
-              value: {{ .Values.lavamusic.environment.LAVALINK_URL }}
+              value: {{ .Values.lavamusic.environment.LAVALINK_URL | quote }}
             - name: LAVALINK_AUTH
-              value: {{ .Values.lavamusic.environment.LAVALINK_AUTH }}
+              value: {{ .Values.lavamusic.environment.LAVALINK_AUTH | quote }}
             - name: LAVALINK_NAME
-              value: {{ .Values.lavamusic.environment.LAVALINK_NAME }}
+              value: {{ .Values.lavamusic.environment.LAVALINK_NAME | quote }}
             - name: LAVALINK_SECURE
-              value: {{ .Values.lavamusic.environment.LAVALINK_SECURE }}
+              value: {{ .Values.lavamusic.environment.LAVALINK_SECURE | quote }}
             # Uncomment and set the appropriate database URL
             # - name: DATABASE_URL
             #   value: {{ .Values.lavamusic.environment.DATABASE_URL }}
