@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.lavalink.name }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.lavalink.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.lavalink.name }}
+    spec:
+      containers:
+        - name: {{ .Values.lavalink.containerName }}
+          image: "{{ .Values.image.lavalink.repository }}:{{ .Values.image.lavalink.tag }}"
+          volumeMounts:
+            - name: config-volume
+              mountPath: /opt/Lavalink/application.yml
+              subPath: application.yml
+          restartPolicy: Always
+      volumes:
+        - name: config-volume
+          hostPath:
+            path: {{ .Values.lavalink.configPath }}

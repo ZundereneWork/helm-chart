@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.discordMusicBot.name }}
+spec:
+  selector:
+    app: {{ .Values.discordMusicBot.name }}
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080

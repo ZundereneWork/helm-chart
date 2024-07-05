@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: lavalink-config
+data:
+  application.yml: |
+{{ .Values.config.lavalink | indent 4 }}

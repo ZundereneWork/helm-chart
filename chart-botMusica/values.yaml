@@ -1,0 +1,38 @@
+replicaCount: 1
+
+image:
+  discordMusicBot:
+    repository: discord-musicbot
+    tag: latest
+    pullPolicy: IfNotPresent
+  lavalink:
+    repository: fredboat/lavalink
+    tag: 3.7.12
+    pullPolicy: IfNotPresent
+
+discordMusicBot:
+  name: discord-musicbot
+  containerName: discord-musicbot
+
+lavalink:
+  name: lavalink
+  containerName: music-lavalink
+
+networkPolicy:
+  name: lavalink-net
+
+config:
+  discordMusicBot: |
+    // Your config.js content goes here
+    module.exports = {
+      token: "YOUR_DISCORD_BOT_TOKEN",
+      prefix: "!",
+      // ... other config settings
+    };
+
+  lavalink: |
+    server:
+      port: 2333
+      address: "0.0.0.0"
+    password: "youshallnotpass"
+    # ... other lavalink settings
