@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: discord-musicbot-config
-data:
-  config.js: |
-{{ .Values.config.discordMusicBot | indent 4 }}

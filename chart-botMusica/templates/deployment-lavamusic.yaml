@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.lavamusic.name }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.lavamusic.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.lavamusic.name }}
+    spec:
+      containers:
+        - name: {{ .Values.lavamusic.containerName }}
+          image: "{{ .Values.image.lavamusic.repository }}:{{ .Values.image.lavamusic.tag }}"
+          env:
+            - name: LAVALINK_URL
+              value: {{ .Values.lavamusic.environment.LAVALINK_URL }}
+            - name: LAVALINK_AUTH
+              value: {{ .Values.lavamusic.environment.LAVALINK_AUTH }}
+            - name: LAVALINK_NAME
+              value: {{ .Values.lavamusic.environment.LAVALINK_NAME }}
+            - name: LAVALINK_SECURE
+              value: {{ .Values.lavamusic.environment.LAVALINK_SECURE }}
+            # Uncomment and set the appropriate database URL
+            # - name: DATABASE_URL
+            #   value: {{ .Values.lavamusic.environment.DATABASE_URL }}
+          volumeMounts:
+            - name: env-volume
+              mountPath: /opt/lavamusic/.env
+              subPath: .env
+          restartPolicy: OnFailure
+      volumes:
+        - name: env-volume
+          hostPath:
+            path: /path/to/your/.env

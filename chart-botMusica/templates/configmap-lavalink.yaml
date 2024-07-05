@@ -4,4 +4,4 @@ metadata:
   name: lavalink-config
 data:
   application.yml: |
-{{ .Values.config.lavalink | indent 4 }}
+{{ .Values.lavalink.config | indent 4 }}

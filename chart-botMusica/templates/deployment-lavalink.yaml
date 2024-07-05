@@ -15,12 +15,19 @@ spec:
       containers:
         - name: {{ .Values.lavalink.containerName }}
           image: "{{ .Values.image.lavalink.repository }}:{{ .Values.image.lavalink.tag }}"
+          ports:
+            - containerPort: 2333
           volumeMounts:
             - name: config-volume
               mountPath: /opt/Lavalink/application.yml
               subPath: application.yml
-          restartPolicy: Always
+            - name: plugins-volume
+              mountPath: /opt/Lavalink/plugins
+          restartPolicy: OnFailure
       volumes:
         - name: config-volume
+          configMap:
+            name: lavalink-config
+        - name: plugins-volume
           hostPath:
-            path: {{ .Values.lavalink.configPath }}
+            path: /path/to/your/Lavalink/plugins
