@@ -1,4 +1,4 @@
 apiVersion: v2
 name: chart-botmusica
 description: A Helm chart for deploying a Discord Music Bot and Lavalink
-version: 1.0.0
+version: 1.0.1
