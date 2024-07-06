@@ -15,6 +15,9 @@ spec:
       containers:
         - name: {{ .Values.lavamusic.containerName }}
           image: "{{ .Values.image.lavamusic.repository }}:{{ .Values.image.lavamusic.tag }}"
+          envFrom:
+            - secretRef:
+              name: token-lavamusic
           env:
             - name: LAVALINK_URL
               value: {{ .Values.lavamusic.environment.LAVALINK_URL | quote }}
@@ -24,9 +27,6 @@ spec:
               value: {{ .Values.lavamusic.environment.LAVALINK_NAME | quote }}
             - name: LAVALINK_SECURE
               value: {{ .Values.lavamusic.environment.LAVALINK_SECURE | quote }}
-
-            - name: TOKEN
-              value: {{ .Values.lavamusic.environment.TOKEN | quote }}
             - name: CLIENT_ID
               value: {{ .Values.lavamusic.environment.CLIENT_ID | quote }}
             - name: PREFIX

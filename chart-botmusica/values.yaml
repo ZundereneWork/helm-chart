@@ -197,7 +197,6 @@ lavamusic:
     LAVALINK_AUTH: "youshallnotpass"
     LAVALINK_NAME: "LavaMusic"
     LAVALINK_SECURE: "false"
-    TOKEN: "${TOKEN}" # Your bot token.
     CLIENT_ID: "396416057859899392" # Your bot's client ID (If this value is left blank, bots cannot be invited using /invite or /about commands.).
     PREFIX: "/" # Your prefix.
     OWNER_IDS: ["",""] # Your discord id (You can add multiple ids.).
