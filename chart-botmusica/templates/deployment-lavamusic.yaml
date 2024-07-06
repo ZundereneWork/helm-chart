@@ -24,9 +24,39 @@ spec:
               value: {{ .Values.lavamusic.environment.LAVALINK_NAME | quote }}
             - name: LAVALINK_SECURE
               value: {{ .Values.lavamusic.environment.LAVALINK_SECURE | quote }}
+
+            - name: TOKEN
+              value: {{ .Values.lavamusic.environment.TOKEN | quote }}
+            - name: CLIENT_ID
+              value: {{ .Values.lavamusic.environment.CLIENT_ID | quote }}
+            - name: PREFIX
+              value: {{ .Values.lavamusic.environment.PREFIX | quote }}
+            - name: OWNER_IDS
+              value: {{ .Values.lavamusic.environment.OWNER_IDS | quote }}
+            - name: GUILD_ID
+              value: {{ .Values.lavamusic.environment.GUILD_ID | quote }}
+            - name: PRODUCTION
+              value: {{ .Values.lavamusic.environment.PRODUCTION | quote }}
+            - name: BOT_STATUS
+              value: {{ .Values.lavamusic.environment.BOT_STATUS | quote }}
+            - name: BOT_ACTIVITY_TYPE
+              value: {{ .Values.lavamusic.environment.BOT_ACTIVITY_TYPE | quote }}
+            - name: BOT_ACTIVITY
+              value: {{ .Values.lavamusic.environment.BOT_ACTIVITY | quote }}
+            - name: DATABASE_URL
+              value: {{ .Values.lavamusic.environment.DATABASE_URL | quote }}
+            - name: AUTO_NODE
+              value: {{ .Values.lavamusic.environment.AUTO_NODE | quote }}
+            - name: SEARCH_ENGINE
+              value: {{ .Values.lavamusic.environment.SEARCH_ENGINE | quote }}
+            - name: MAX_PLAYLIST_SIZE
+              value: {{ .Values.lavamusic.environment.MAX_PLAYLIST_SIZE | quote }}
+            - name: MAX_QUEUE_SIZE
+              value: {{ .Values.lavamusic.environment.MAX_QUEUE_SIZE | quote }}
+            - name: KEEP_ALIVE
+              value: {{ .Values.lavamusic.environment.KEEP_ALIVE | quote }}
+            - name: LOG_CHANNEL_ID
+              value: {{ .Values.lavamusic.environment.LOG_CHANNEL_ID | quote }}
             # Uncomment and set the appropriate database URL
             # - name: DATABASE_URL
             #   value: {{ .Values.lavamusic.environment.DATABASE_URL }}
-          envFrom:
-          - configMapRef:
-            name: lavamusic-config
