@@ -27,6 +27,3 @@ spec:
         - name: config-volume
           configMap:
             name: lavalink-config
-        - name: plugins-volume
-          hostPath:
-            path: /path/to/your/Lavalink/plugins
