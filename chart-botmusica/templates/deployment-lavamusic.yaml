@@ -27,11 +27,6 @@ spec:
             # Uncomment and set the appropriate database URL
             # - name: DATABASE_URL
             #   value: {{ .Values.lavamusic.environment.DATABASE_URL }}
-          volumeMounts:
-            - name: env-volume
-              mountPath: /opt/lavamusic/.env
-              subPath: .env
-      volumes:
-        - name: env-volume
-          configMap:
-            name: lavalink-config
+          envFrom:
+          - configMapRef:
+            name: lavamusic-config

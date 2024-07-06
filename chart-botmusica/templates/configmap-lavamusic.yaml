@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: lavamusic-config
+data:
+  application.yml: |
+{{ .Values.lavamusic.config | indent 4 }}
