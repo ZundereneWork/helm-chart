@@ -21,8 +21,6 @@ spec:
             - name: config-volume
               mountPath: /opt/Lavalink/application.yml
               subPath: application.yml
-            - name: plugins-volume
-              mountPath: /opt/Lavalink/plugins
       volumes:
         - name: config-volume
           configMap:
