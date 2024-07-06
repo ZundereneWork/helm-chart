@@ -17,7 +17,7 @@ spec:
           image: "{{ .Values.image.lavamusic.repository }}:{{ .Values.image.lavamusic.tag }}"
           envFrom:
             - secretRef:
-              name: token-lavamusic
+                name: token-lavamusic
           env:
             - name: LAVALINK_URL
               value: {{ .Values.lavamusic.environment.LAVALINK_URL | quote }}
