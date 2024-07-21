@@ -15,5 +15,5 @@ spec:
       storage: {{ $val.PVC.capacity}}
   storageClassName: {{ $val.PVC.storageClassName}}
 ---
-
+{{- end }}
 {{- end }}
