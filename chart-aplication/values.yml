@@ -3,6 +3,7 @@ sonarr:
   Service:
       port: 8989
   PVC:
+      enable: true
       storageClassName: microk8s-hostpath
       capacity: 1Gi
   Ingress:
@@ -56,6 +57,7 @@ radarr:
   PVC:
       storageClassName: microk8s-hostpath
       capacity: 1Gi
+      enable: true
   Ingress:
     Enable: true
     Host: radarr.thelmalouise.ddns.net
@@ -106,6 +108,7 @@ prowlarr:
   PVC:
       storageClassName: microk8s-hostpath
       capacity: 1Gi
+      enable: true
   Ingress:
     Enable: true
     Host: prowlarr.thelmalouise.ddns.net
@@ -145,6 +148,7 @@ jellyseerr:
   PVC:
       storageClassName: microk8s-hostpath
       capacity: 1Gi
+      enable: true
   Ingress:
     Enable: true
     Host: jellyseerr.thelmalouise.ddns.net
@@ -164,6 +168,7 @@ jellyfin:
   PVC:
       storageClassName: microk8s-hostpath
       capacity: 1Gi
+      enable: true
   Ingress:
     Enable: true
     Host: jellyfin.thelmalouise.ddns.net
@@ -189,6 +194,7 @@ bazarr:
   PVC:
       storageClassName: microk8s-hostpath
       capacity: 1Gi
+      enable: true
   env:
       POSTGRES_PASSWORD: FS56A8b9cWO0hW
       POSTGRES_USER: bazarr 
@@ -219,6 +225,7 @@ jackett:
   PVC:
       storageClassName: microk8s-hostpath
       capacity: 1Gi
+      enable: true
   Ingress:
     Enable: true
     Host: jackett.thelmalouise.ddns.net
@@ -239,6 +246,10 @@ flaresolverr:
       port: 8191
   Ingress:
     Enable: false
+  PVC: 
+    enable: true
+    storageClassName: microk8s-hostpath
+    capacity: 1Gi
   
 youtube:
   Image: 'tzahi12345/youtubedl-material:latest'
@@ -249,6 +260,7 @@ youtube:
     ytdl_use_local_db: 'false'
     write_ytdl_config: 'true'
   PVC:
+      enable: true
       storageClassName: microk8s-hostpath
       capacity: 1Gi
   Ingress:
