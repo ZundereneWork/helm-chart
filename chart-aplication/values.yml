@@ -237,9 +237,7 @@ flaresolverr:
   Image: 'ghcr.io/flaresolverr/flaresolverr:latest'
   Service:
       port: 8191
-  PVC:
-      storageClassName: microk8s-hostpath
-      capacity: 1Gi
+  PVC: {}
   Ingress:
     Enable: false
   
