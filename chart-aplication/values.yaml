@@ -247,7 +247,7 @@ flaresolverr:
   PVC:
       storageClassName: microk8s-hostpath
       capacity: 1Gi
-      Enable: true
+      Enable: false
   Ingress:
     Enable: false
   
