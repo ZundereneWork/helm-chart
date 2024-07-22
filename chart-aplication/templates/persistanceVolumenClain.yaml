@@ -1,5 +1,5 @@
 {{- range $key, $val := .Values }}
-{{- if  $val.Volumes }}
+{{- if eq $val.PVC.Enable true }}
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
