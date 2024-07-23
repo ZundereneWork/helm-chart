@@ -7,7 +7,6 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Delete
   resources:
     requests:
       storage: {{ .Values.PVC.capacity}}
