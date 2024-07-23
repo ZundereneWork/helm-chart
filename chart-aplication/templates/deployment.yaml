@@ -51,12 +51,6 @@ spec:
               exec:
                 command: ['sh', '-c', 'cp /config_example/config.xml /config/config.xml']
           
-          resources:
-          
-          {{- default $val.GPU.Enable true  }}
-            limits:
-              nvidia.com/gpu: 1    #<-- ASSIGN 1 GPU, IF MULTIPLE
-          {{- end }}
 {{- end }}
 
       volumes:
