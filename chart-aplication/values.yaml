@@ -276,7 +276,7 @@ youtube:
     ytdl_use_local_db: 'false'
     write_ytdl_config: 'true'
   PVC:
-      storageClassName: nfs-nas
+      storageClassName:  microk8s-hostpath
       capacity: 1Gi
       Enable: true
   Ingress:
