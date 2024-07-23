@@ -171,7 +171,7 @@ jellyfin:
   Service:
       port: 8096
   GPU:
-     Enable: "true"
+     Enable: true
   env:
     NVIDIA_DRIVER_CAPABILITIES: "compute,video,utility"
  
