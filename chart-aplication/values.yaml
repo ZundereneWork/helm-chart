@@ -6,6 +6,8 @@ sonarr:
       storageClassName: microk8s-hostpath
       capacity: 1Gi
       Enable: true
+  GPU:
+     Enable: false
   Ingress:
     Enable: true
     Host: sonarr.thelmalouise.ddns.net
@@ -58,6 +60,8 @@ radarr:
       storageClassName: microk8s-hostpath
       capacity: 1Gi
       Enable: true
+  GPU:
+     Enable: false
   Ingress:
     Enable: true
     Host: radarr.thelmalouise.ddns.net
@@ -109,6 +113,8 @@ prowlarr:
       storageClassName: microk8s-hostpath
       capacity: 1Gi
       Enable: true
+  GPU:
+     Enable: false
   Ingress:
     Enable: true
     Host: prowlarr.thelmalouise.ddns.net
@@ -145,6 +151,8 @@ jellyseerr:
   Image: 'fallenbagel/jellyseerr'  
   Service:
       port: 5055
+  GPU:
+     Enable: false
   PVC:
       storageClassName: microk8s-hostpath
       capacity: 1Gi
@@ -162,6 +170,8 @@ jellyfin:
   Image: 'jellyfin/jellyfin:latest' 
   Service:
       port: 8096
+  GPU:
+     Enable: true
   env:
     NVIDIA_DRIVER_CAPABILITIES: "compute,video,utility"
  
@@ -191,6 +201,8 @@ bazarr:
   Image: 'lscr.io/linuxserver/bazarr:latest'
   Service:
       port: 6767
+  GPU:
+     Enable: false
   PVC:
       storageClassName: microk8s-hostpath
       capacity: 1Gi
@@ -222,6 +234,8 @@ jackett:
   Image: 'lscr.io/linuxserver/jackett:latest'
   Service:
       port: 9117
+  GPU:
+     Enable: false
   PVC:
       storageClassName: microk8s-hostpath
       capacity: 1Gi
@@ -253,6 +267,8 @@ flaresolverr:
   
 youtube:
   Image: 'tzahi12345/youtubedl-material:latest'
+  GPU:
+     Enable: false
   Service:
       port: 17442
   env:
