@@ -52,7 +52,8 @@ spec:
                 command: ['sh', '-c', 'cp /config_example/config.xml /config/config.xml']
           
           resources:
-          {{- if eq $val.GPU.Enable true  }}
+          
+          {{- default $val.GPU.Enable true  }}
             limits:
               nvidia.com/gpu: 1    #<-- ASSIGN 1 GPU, IF MULTIPLE
           {{- end }}
