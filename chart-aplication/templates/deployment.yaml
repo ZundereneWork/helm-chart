@@ -50,7 +50,7 @@ spec:
             postStart:
               exec:
                 command: ['sh', '-c', 'cp /config_example/config.xml /config/config.xml']
-          {{- if eq $val.GPU.Enable "true"  }}
+          {{- if $val.GPU.Enable   }}
           resources:
             limits:
               nvidia.com/gpu: 1    #<-- ASSIGN 1 GPU, IF MULTIPLE
