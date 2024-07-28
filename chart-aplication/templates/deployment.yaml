@@ -45,12 +45,12 @@ spec:
               port: {{  $val.Service.port }}
             initialDelaySeconds: 30
             periodSeconds: 20
+          resources: {}
           {{- if or (eq $key "sonarr") ( eq $key "radarr") ( eq $key "prowlarr") }}
           lifecycle:
             postStart:
               exec:
-                command: ['sh', '-c', 'cp /config_example/config.xml /config/config.xml']
-          
+                command: ['sh', '-c', 'cp /config_example/config.xml /config/config.xml'] 
 {{- end }}
 
       volumes:
