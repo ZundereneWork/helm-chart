@@ -6,7 +6,8 @@ sonarr:
       storageClassName: microk8s-hostpath
       capacity: 1Gi
       Enable: true
-
+  readinessProbe: 30
+  livenessProbe: 30
   Ingress:
     Enable: true
     Host: sonarr.thelmalouise.ddns.net
@@ -59,6 +60,8 @@ radarr:
       storageClassName: microk8s-hostpath
       capacity: 1Gi
       Enable: true
+  readinessProbe: 30
+  livenessProbe: 30
   Ingress:
     Enable: true
     Host: radarr.thelmalouise.ddns.net
@@ -78,6 +81,7 @@ radarr:
           mountPath: /downloads
           server: 192.168.18.10
           path: /volume1/Descargas
+  
   ConfigMap:
     config.xml: |
       <Config>
@@ -116,6 +120,8 @@ prowlarr:
     Host: prowlarr.thelmalouise.ddns.net
     EnableOauth: true
     prefix: ""
+  readinessProbe: 30
+  livenessProbe: 30
   Volumes:
         config:
           type: volumenClain
@@ -156,6 +162,8 @@ jellyseerr:
     Enable: true
     Host: jellyseerr.thelmalouise.ddns.net
     prefix: ""
+  readinessProbe: 30
+  livenessProbe: 30
   Volumes:
         config:
           type: volumenClain
@@ -177,6 +185,8 @@ jellyfin:
     Enable: true
     Host: jellyfin.thelmalouise.ddns.net
     prefix: ""
+  readinessProbe: 30
+  livenessProbe: 30
   Volumes:
         config:
           type: volumenClain
@@ -204,6 +214,8 @@ bazarr:
       POSTGRES_PASSWORD: FS56A8b9cWO0hW
       POSTGRES_USER: bazarr 
       POSTGRES_DB: bazarr
+  readinessProbe: 30
+  livenessProbe: 30
   Ingress:
     Enable: true
     Host: bazarr.thelmalouise.ddns.net
@@ -237,6 +249,8 @@ jackett:
     Host: jackett.thelmalouise.ddns.net
     EnableOauth: true
     prefix: ""
+  readinessProbe: 30
+  livenessProbe: 30
   Volumes:
         config:
           type: volumenClain
@@ -256,6 +270,8 @@ flaresolverr:
       Enable: false
   Ingress:
     Enable: false
+  readinessProbe: 30
+  livenessProbe: 30
   
 youtube:
   Image: 'tzahi12345/youtubedl-material:latest'
@@ -270,6 +286,8 @@ youtube:
       storageClassName:  microk8s-hostpath
       capacity: 1Gi
       Enable: true
+  readinessProbe: 30
+  livenessProbe: 30
   Ingress:
     Enable: true
     Host: yt.thelmalouise.ddns.net
