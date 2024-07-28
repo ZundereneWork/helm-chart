@@ -6,7 +6,10 @@ sonarr:
       storageClassName: microk8s-hostpath
       capacity: 1Gi
       Enable: true
-
+  readinessProbe: 
+    Seconds: 300
+  livenessProbe: 
+    Seconds: 300
   Ingress:
     Enable: true
     Host: sonarr.thelmalouise.ddns.net
@@ -59,6 +62,10 @@ radarr:
       storageClassName: microk8s-hostpath
       capacity: 1Gi
       Enable: true
+  readinessProbe: 
+    Seconds: 300
+  livenessProbe: 
+    Seconds: 300
   Ingress:
     Enable: true
     Host: radarr.thelmalouise.ddns.net
@@ -110,7 +117,10 @@ prowlarr:
       storageClassName: microk8s-hostpath
       capacity: 1Gi
       Enable: true
-
+  readinessProbe: 
+    Seconds: 300
+  livenessProbe: 
+    Seconds: 300
   Ingress:
     Enable: true
     Host: prowlarr.thelmalouise.ddns.net
@@ -152,6 +162,10 @@ jellyseerr:
       storageClassName: microk8s-hostpath
       capacity: 1Gi
       Enable: true
+  readinessProbe: 
+    Seconds: 300
+  livenessProbe: 
+    Seconds: 300
   Ingress:
     Enable: true
     Host: jellyseerr.thelmalouise.ddns.net
@@ -173,6 +187,10 @@ jellyfin:
       storageClassName: microk8s-hostpath
       capacity: 1Gi
       Enable: true
+  readinessProbe: 
+    Seconds: 300
+  livenessProbe: 
+    Seconds: 300
   Ingress:
     Enable: true
     Host: jellyfin.thelmalouise.ddns.net
@@ -200,6 +218,10 @@ bazarr:
       storageClassName: microk8s-hostpath
       capacity: 1Gi
       Enable: true
+  readinessProbe: 
+    Seconds: 300
+  livenessProbe: 
+    Seconds: 300
   env:
       POSTGRES_PASSWORD: FS56A8b9cWO0hW
       POSTGRES_USER: bazarr 
@@ -232,6 +254,10 @@ jackett:
       storageClassName: microk8s-hostpath
       capacity: 1Gi
       Enable: true
+  readinessProbe: 
+    Seconds: 300
+  livenessProbe: 
+    Seconds: 300
   Ingress:
     Enable: true
     Host: jackett.thelmalouise.ddns.net
@@ -254,6 +280,10 @@ flaresolverr:
       storageClassName: microk8s-hostpath
       capacity: 1Gi
       Enable: false
+  readinessProbe: 
+    Seconds: 300
+  livenessProbe: 
+    Seconds: 300
   Ingress:
     Enable: false
   
@@ -270,7 +300,10 @@ youtube:
       storageClassName:  microk8s-hostpath
       capacity: 1Gi
       Enable: true
-      
+  readinessProbe: 
+    Seconds: 300
+  livenessProbe: 
+    Seconds: 300
   Ingress:
     Enable: true
     Host: yt.thelmalouise.ddns.net

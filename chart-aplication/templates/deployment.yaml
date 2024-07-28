@@ -39,7 +39,7 @@ spec:
             tcpSocket:
               port: {{  $val.Service.port }}
             initialDelaySeconds: 30
-            periodSeconds: {{ $val.readinessProbe.Seconds | default  "20" }}
+            periodSeconds: {{ default  "20" | $val.readinessProbe.Seconds  }}
           livenessProbe:
             tcpSocket:
               port: {{  $val.Service.port }}
