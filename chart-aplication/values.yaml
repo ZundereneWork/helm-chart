@@ -309,7 +309,7 @@ youtube:
 #   Service:
 #       port: 8083
 #   env:
-#     DOCKER_MODS: "linuxserver/calibre-web:latest"
+#     DOCKER_MODS: "linuxserver/mods:universal-calibre"
 #   PVC:
 #       storageClassName:  microk8s-hostpath
 #       capacity: 1Gi
