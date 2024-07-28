@@ -309,7 +309,7 @@ calibre:
   Service:
       port: 8083
   env:
-    DOCKER_MODS: "linuxserver/calibre-web:calibre"
+    DOCKER_MODS: "linuxserver/calibre-web:latest"
   PVC:
       storageClassName:  microk8s-hostpath
       capacity: 1Gi
