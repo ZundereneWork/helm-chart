@@ -18,6 +18,9 @@ spec:
       containers:
         - name: {{ $key  }}
           image: {{ $val.Image }}
+          {{- if eq $key "calibre" }}
+            comandInit:  ['sh', '-c', 'apt-get install wget && wget -LO https://github.com/janeczku/calibre-web/raw/master/library/metadata.db' ] 
+          {{- end }}
           imagePullPolicy: Always
           ports:
             - containerPort: {{  $val.Service.port }}
@@ -51,12 +54,6 @@ spec:
             postStart:
               exec:
                 command: ['sh', '-c', 'cp /config_example/config.xml /config/config.xml'] 
-          {{- end }}
-          {{- if eq $key "calibre" }}
-          lifecycle:
-            postStart:
-              exec:
-                command: ['sh', '-c', 'apt-get install wget && wget -LO https://github.com/janeczku/calibre-web/raw/master/library/metadata.db' ] 
           {{- end }}
 
       volumes:
