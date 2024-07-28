@@ -303,30 +303,30 @@ youtube:
           mountPath: /app/users
           server: 192.168.18.10
           path: /volume1/Multimedia/Youtube/users
-calibre:
-  Image: 'linuxserver/calibre-web:latest'
+# calibre:
+#   Image: 'linuxserver/calibre-web:latest'
 
-  Service:
-      port: 8083
-  env:
-    DOCKER_MODS: "linuxserver/calibre-web:latest"
-  PVC:
-      storageClassName:  microk8s-hostpath
-      capacity: 1Gi
-      Enable: true
-  Ingress:
-    Enable: true
-    Host: books.thelmalouise.ddns.net
-    prefix: ""
-  Volumes:
-        config:
-          type: volumenClain
-          mountPath: /config
-        books:
-          type: nfs 
-          mountPath: /books
-          server: 192.168.18.10
-          path: /volume1/Multimedia/Libros
+#   Service:
+#       port: 8083
+#   env:
+#     DOCKER_MODS: "linuxserver/calibre-web:latest"
+#   PVC:
+#       storageClassName:  microk8s-hostpath
+#       capacity: 1Gi
+#       Enable: true
+#   Ingress:
+#     Enable: true
+#     Host: books.thelmalouise.ddns.net
+#     prefix: ""
+#   Volumes:
+#         config:
+#           type: volumenClain
+#           mountPath: /config
+#         books:
+#           type: nfs 
+#           mountPath: /books
+#           server: 192.168.18.10
+#           path: /volume1/Multimedia/Libros
         
 # ia:
 #   Image: 'mccloud/subgen' 
