@@ -7,9 +7,9 @@ sonarr:
       capacity: 1Gi
       Enable: true
   readinessProbe: 
-    Seconds: 300
+    Seconds: 30
   livenessProbe: 
-    Seconds: 300
+    Seconds: 30
   Ingress:
     Enable: true
     Host: sonarr.thelmalouise.ddns.net
@@ -63,9 +63,9 @@ radarr:
       capacity: 1Gi
       Enable: true
   readinessProbe: 
-    Seconds: 300
+    Seconds: 30
   livenessProbe: 
-    Seconds: 300
+    Seconds: 30
   Ingress:
     Enable: true
     Host: radarr.thelmalouise.ddns.net
@@ -118,9 +118,9 @@ prowlarr:
       capacity: 1Gi
       Enable: true
   readinessProbe: 
-    Seconds: 300
+    Seconds: 30
   livenessProbe: 
-    Seconds: 300
+    Seconds: 30
   Ingress:
     Enable: true
     Host: prowlarr.thelmalouise.ddns.net
@@ -163,9 +163,9 @@ jellyseerr:
       capacity: 1Gi
       Enable: true
   readinessProbe: 
-    Seconds: 300
+    Seconds: 30
   livenessProbe: 
-    Seconds: 300
+    Seconds: 30
   Ingress:
     Enable: true
     Host: jellyseerr.thelmalouise.ddns.net
@@ -188,9 +188,9 @@ jellyfin:
       capacity: 1Gi
       Enable: true
   readinessProbe: 
-    Seconds: 300
+    Seconds: 30
   livenessProbe: 
-    Seconds: 300
+    Seconds: 30
   Ingress:
     Enable: true
     Host: jellyfin.thelmalouise.ddns.net
@@ -219,9 +219,9 @@ bazarr:
       capacity: 1Gi
       Enable: true
   readinessProbe: 
-    Seconds: 300
+    Seconds: 30
   livenessProbe: 
-    Seconds: 300
+    Seconds: 30
   env:
       POSTGRES_PASSWORD: FS56A8b9cWO0hW
       POSTGRES_USER: bazarr 
@@ -255,9 +255,9 @@ jackett:
       capacity: 1Gi
       Enable: true
   readinessProbe: 
-    Seconds: 300
+    Seconds: 30
   livenessProbe: 
-    Seconds: 300
+    Seconds: 30
   Ingress:
     Enable: true
     Host: jackett.thelmalouise.ddns.net
@@ -281,9 +281,9 @@ flaresolverr:
       capacity: 1Gi
       Enable: false
   readinessProbe: 
-    Seconds: 300
+    Seconds: 30
   livenessProbe: 
-    Seconds: 300
+    Seconds: 30
   Ingress:
     Enable: false
   
@@ -301,9 +301,9 @@ youtube:
       capacity: 1Gi
       Enable: true
   readinessProbe: 
-    Seconds: 300
+    Seconds: 30
   livenessProbe: 
-    Seconds: 300
+    Seconds: 30
   Ingress:
     Enable: true
     Host: yt.thelmalouise.ddns.net
