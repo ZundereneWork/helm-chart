@@ -155,7 +155,7 @@ readarr:
         <SslCertPath></SslCertPath>
         <SslCertPassword></SslCertPassword>
         <UrlBase></UrlBase>
-        <InstanceName>Radarr</InstanceName>
+        <InstanceName>readarr</InstanceName>
         <UpdateMechanism>Docker</UpdateMechanism>
         <PostgresUser>readarr</PostgresUser>
         <PostgresPassword>us7fp2QMfvDsUg</PostgresPassword>
