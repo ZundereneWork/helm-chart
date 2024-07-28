@@ -39,12 +39,12 @@ spec:
             tcpSocket:
               port: {{  $val.Service.port }}
             initialDelaySeconds: 30
-            periodSeconds: 20
+            periodSeconds: {{ $val.readinessProbe.Seconds | 20 }}
           livenessProbe:
             tcpSocket:
               port: {{  $val.Service.port }}
             initialDelaySeconds: 30
-            periodSeconds: 20
+            periodSeconds: {{ $val.livenessProbe.Seconds | 20 }}
           resources: {}
           {{- if or (eq $key "sonarr") ( eq $key "radarr") ( eq $key "prowlarr") }}
           lifecycle:

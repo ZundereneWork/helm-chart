@@ -314,6 +314,8 @@ calibre:
       storageClassName:  microk8s-hostpath
       capacity: 1Gi
       Enable: true
+  readinessProbe: 300
+  livenessProbe: 300
   Ingress:
     Enable: true
     Host: books.thelmalouise.ddns.net
