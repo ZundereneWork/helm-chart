@@ -51,12 +51,13 @@ spec:
             postStart:
               exec:
                 command: ['sh', '-c', 'cp /config_example/config.xml /config/config.xml'] 
-          {{- if eq $key "calibre" }}+
+          {{- end }}
+          {{- if eq $key "calibre" }}
           lifecycle:
             postStart:
               exec:
                 command: ['sh', '-c', 'wget -LO https://github.com/janeczku/calibre-web/raw/master/library/metadata.db' ] 
-{{- end }}
+          {{- end }}
 
       volumes:
       {{- range $name, $data :=  $val.Volumes }}
