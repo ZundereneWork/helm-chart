@@ -108,6 +108,60 @@ radarr:
         <PostgresPort>5433</PostgresPort>
         <PostgresHost>192.168.18.10</PostgresHost>
       </Config>
+readarr:
+  Image: 'lscr.io/linuxserver/readarr:develop' 
+  Service:
+      port: 8787
+  PVC:
+      storageClassName: microk8s-hostpath
+      capacity: 1Gi
+      Enable: true
+  readinessProbe: 
+    Seconds: 30
+  livenessProbe: 
+    Seconds: 30
+  Ingress:
+    Enable: true
+    Host: readarr.thelmalouise.ddns.net
+    EnableOauth: true
+    prefix: ""
+  Volumes:
+        config:
+          type: volumenClain
+          mountPath: /config
+        serie:
+          type: nfs
+          mountPath: /books
+          server: 192.168.18.10
+          path: /volume1/Multimedia/Libros
+        descargas:
+          type: nfs 
+          mountPath: /downloads
+          server: 192.168.18.10
+          path: /volume1/Descargas
+  ConfigMap:
+    config.xml: |
+      <Config>
+        <BindAddress>*</BindAddress>
+        <Port>8787</Port>
+        <SslPort>9898</SslPort>
+        <EnableSsl>False</EnableSsl>
+        <LaunchBrowser>True</LaunchBrowser>
+        <ApiKey>f324b13a7fe3491187a5098fc4e2d57b</ApiKey>
+        <AuthenticationMethod>External</AuthenticationMethod>
+        <AuthenticationRequired>Enabled</AuthenticationRequired>
+        <Branch>master</Branch>
+        <LogLevel>info</LogLevel>
+        <SslCertPath></SslCertPath>
+        <SslCertPassword></SslCertPassword>
+        <UrlBase></UrlBase>
+        <InstanceName>Radarr</InstanceName>
+        <UpdateMechanism>Docker</UpdateMechanism>
+        <PostgresUser>readarr</PostgresUser>
+        <PostgresPassword>us7fp2QMfvDsUg</PostgresPassword>
+        <PostgresPort>5433</PostgresPort>
+        <PostgresHost>192.168.18.10</PostgresHost>
+      </Config>
 
 prowlarr:
   Image: 'lscr.io/linuxserver/prowlarr:develop'  
