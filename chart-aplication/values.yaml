@@ -350,6 +350,8 @@ youtube:
     ytdl_mongodb_connection_string: 'mongodb://192.168.18.10:27017'
     ytdl_use_local_db: 'false'
     write_ytdl_config: 'true'
+    UID: 1026
+    GID: 100
   PVC:
       storageClassName:  microk8s-hostpath
       capacity: 1Gi
