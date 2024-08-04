@@ -7,7 +7,7 @@ youtube:
     ytdl_use_local_db: 'false'
     write_ytdl_config: 'true'
     UID: 100
-    GID: 105
+    GID: 1025
 
   PVC:
       storageClassName:  microk8s-hostpath
