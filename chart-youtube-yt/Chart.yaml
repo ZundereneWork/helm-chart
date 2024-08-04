@@ -1,0 +1,5 @@
+apiVersion: "v2"
+name: "chart-aplication"
+description: "Un helm para desplegar packs de app"
+version: "1.0.0"
+

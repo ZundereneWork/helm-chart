@@ -341,86 +341,35 @@ flaresolverr:
   Ingress:
     Enable: false
   
-youtube:
-  Image: 'tzahi12345/youtubedl-material:latest'
 
-  Service:
-      port: 17442
-  env:
-    ytdl_mongodb_connection_string: 'mongodb://192.168.18.10:27017'
-    ytdl_use_local_db: 'false'
-    write_ytdl_config: 'true'
-    UID: 1025
-    GID: 100
-  PVC:
-      storageClassName:  microk8s-hostpath
-      capacity: 1Gi
-      Enable: true
-  readinessProbe: 
-    Seconds: 30
-  livenessProbe: 
-    Seconds: 30
-  Ingress:
-    Enable: true
-    Host: yt.thelmalouise.ddns.net
-    prefix: ""
-  Volumes:
-        config:
-          type: volumenClain
-          mountPath: /config
-        appdata:
-          type: nfs 
-          mountPath: /app/appdata
-          server: 192.168.18.10
-          path: /volume1/Multimedia/Youtube/appdata
-        audio:
-          type: nfs 
-          mountPath: /app/audio
-          server: 192.168.18.10
-          path: /volume1/Multimedia/Youtube/audio
-        video:
-          type: nfs 
-          mountPath: /app/video
-          server: 192.168.18.10
-          path: /volume1/Multimedia/Youtube/video
-        subscriptions:
-          type: nfs 
-          mountPath: /app/subscriptions
-          server: 192.168.18.10
-          path: /volume1/Multimedia/Youtube/subscriptions
-        users:
-          type: nfs 
-          mountPath: /app/users
-          server: 192.168.18.10
-          path: /volume1/Multimedia/Youtube/users
-calibre:
-  Image: 'linuxserver/calibre-web:latest'
+# calibre:
+#   Image: 'linuxserver/calibre-web:latest'
 
-  Service:
-      port: 8083
-  env:
-    DOCKER_MODS: "linuxserver/mods:universal-calibre"
-  PVC:
-      storageClassName:  microk8s-hostpath
-      capacity: 1Gi
-      Enable: true
-  readinessProbe: 
-    Seconds: 300
-  livenessProbe: 
-    Seconds: 300
-  Ingress:
-    Enable: true
-    Host: books.thelmalouise.ddns.net
-    prefix: ""
-  Volumes:
-        config:
-          type: volumenClain
-          mountPath: /config
-        books:
-          type: nfs 
-          mountPath: /books
-          server: 192.168.18.10
-          path: /volume1/Multimedia/Libros
+#   Service:
+#       port: 8083
+#   env:
+#     DOCKER_MODS: "linuxserver/mods:universal-calibre"
+#   PVC:
+#       storageClassName:  microk8s-hostpath
+#       capacity: 1Gi
+#       Enable: true
+#   readinessProbe: 
+#     Seconds: 300
+#   livenessProbe: 
+#     Seconds: 300
+#   Ingress:
+#     Enable: true
+#     Host: books.thelmalouise.ddns.net
+#     prefix: ""
+#   Volumes:
+#         config:
+#           type: volumenClain
+#           mountPath: /config
+#         books:
+#           type: nfs 
+#           mountPath: /books
+#           server: 192.168.18.10
+#           path: /volume1/Multimedia/Libros
         
 # ia:
 #   Image: 'mccloud/subgen' 
