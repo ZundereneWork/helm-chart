@@ -5,4 +5,4 @@ metadata:
   labels:
     app: config
 data:
-  {{- .Value.youtube.ConfigMap | toYaml | nindent 2 }}
+  {{- .Values.youtube.ConfigMap | toYaml | nindent 2 }}
