@@ -51,7 +51,7 @@ youtube:
           mountPath: /app/users
           server: 192.168.18.10
           path: /volume1/Multimedia/Youtube/users
-  Config:
+  ConfigMap:
     default.json : |
       {
       "YoutubeDLMaterial": {
