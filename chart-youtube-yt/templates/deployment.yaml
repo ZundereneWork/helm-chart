@@ -31,8 +31,7 @@ spec:
             - name: {{ $name }}
               mountPath: {{ $data.mountPath }}
             {{- end }}
-            - name: config-volume
-              mountPath: /app/appdata
+            
           readinessProbe:
             tcpSocket:
               port: {{  $val.Service.port }}
@@ -57,9 +56,6 @@ spec:
             path: {{ $data.path }}
       {{- end }}
       {{- end }}
-      - name: config-volume
-        configMap:
-          name: config
 ---
 {{- end }} 
 
