@@ -31,17 +31,6 @@ spec:
             - name: {{ $name }}
               mountPath: {{ $data.mountPath }}
             {{- end }}
-          readinessProbe:
-            tcpSocket:
-              port: {{  $val.Service.port }}
-            initialDelaySeconds:  {{ $val.readinessProbe.Seconds  }}
-            periodSeconds: 30
-          livenessProbe:
-            tcpSocket:
-              port: {{  $val.Service.port }}
-            initialDelaySeconds: {{ $val.livenessProbe.Seconds }}
-            periodSeconds: 30
-          resources: {}
 
       volumes:
       {{- range $name, $data :=  $val.Volumes }}
