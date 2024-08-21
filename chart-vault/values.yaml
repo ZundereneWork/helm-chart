@@ -5,6 +5,7 @@ vaultwarden:
   PVC:
       storageClassName: microk8s-hostpath
       capacity: 1Gi
+      Enable: true
   Ingress:
     Host: vault.thelmalouise.ddns.net
     prefix: ""
