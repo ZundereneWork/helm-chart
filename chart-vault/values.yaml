@@ -1,0 +1,14 @@
+vaultwarden:
+  Image: 'vaultwarden/server:latest' 
+  Service:
+      port: 80
+  PVC:
+      storageClassName: microk8s-hostpath
+      capacity: 1Gi
+  Ingress:
+    Host: vault.thelmalouise.ddns.net
+    prefix: ""
+  Volumes:
+        config:
+          type: volumenClain
+          mountPath: /data
