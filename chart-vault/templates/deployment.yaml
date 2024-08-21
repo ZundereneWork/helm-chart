@@ -1,0 +1,64 @@
+{{- range $key, $val := .Values }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ $key }}
+  labels:
+    nombre: {{ $key }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ $key  }}
+  template:
+    metadata:
+      labels:
+        app: {{ $key  }}
+    spec:
+      containers:
+        - name: {{ $key  }}
+          image: {{ $val.Image }}
+          imagePullPolicy: Always
+          ports:
+            - containerPort: {{  $val.Service.port }}
+          env:
+          {{- range $key, $value := $val.env }}
+            - name: {{ $key }}
+              value: {{ $value | quote }}
+          {{- end }}
+          volumeMounts:
+            {{- range $name, $data :=  $val.Volumes }}
+            - name: {{ $name }}
+              mountPath: {{ $data.mountPath }}
+            {{- end }}
+          readinessProbe:
+            tcpSocket:
+              port: {{  $val.Service.port }}
+            initialDelaySeconds:  {{ $val.readinessProbe.Seconds  }}
+            periodSeconds: 30
+          livenessProbe:
+            tcpSocket:
+              port: {{  $val.Service.port }}
+            initialDelaySeconds: {{ $val.livenessProbe.Seconds }}
+            periodSeconds: 30
+          resources: {}
+
+      volumes:
+      {{- range $name, $data :=  $val.Volumes }}
+      - name: {{ $name }}
+      {{- if eq $data.type  "volumenClain" }}
+        persistentVolumeClaim:
+          claimName: pvc-{{ $key }}
+      {{- else if eq  $data.type  "nfs" }}
+        nfs:
+            server: {{ $data.server }}
+            path: {{ $data.path }}
+      {{- end }}
+      {{- end }}
+---
+{{- end }} 
+
+
+
+
+

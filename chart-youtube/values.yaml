@@ -1,39 +1,14 @@
-tubearchivist:
-  image:
-    repository: bbilly1/tubearchivist
-    tag: latest
-  service:
-    type: ClusterIP
-    port: 8000
-  env:
-    ES_URL: "http://archivist-es:9200"
-    REDIS_HOST: "archivist-redis"
-    HOST_UID: 1000
-    HOST_GID: 1000
-    TA_HOST: "yt.thelmalouise.ddns.net"
-    TA_USERNAME: "tubearchivist"
-    TA_PASSWORD: "verysecret"
-    ELASTIC_PASSWORD: "verysecret"
-    TZ: "America/New_York"
-
-redis:
-  image:
-    repository: redis/redis-stack-server
-    tag: latest
-  service:
-    type: ClusterIP
-    port: 6379
-
-elasticsearch:
-  image:
-    repository: bbilly1/tubearchivist-es
-    tag: latest
-  service:
-    type: ClusterIP
-    port: 9200
-  env:
-    ELASTIC_PASSWORD: "verysecret"
-    ES_JAVA_OPTS: "-Xms512m -Xmx512m"
-    xpack_security_enabled: "true"
-    discovery_type: "single-node"
-    path_repo: "/usr/share/elasticsearch/data/snapshot"
+vaultwarden:
+  Image: 'vaultwarden/server:latest' 
+  Service:
+      port: 80
+  PVC:
+      storageClassName: microk8s-hostpath
+      capacity: 1Gi
+  Ingress:
+    Host: vault.thelmalouise.ddns.net
+    prefix: ""
+  Volumes:
+        config:
+          type: volumenClain
+          mountPath: /data
