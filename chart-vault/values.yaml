@@ -9,6 +9,8 @@ vaultwarden:
   Ingress:
     Host: vault.thelmalouise.ddns.net
     prefix: ""
+    Enable: true
+    EnableOauth: false
   Volumes:
         config:
           type: volumenClain
