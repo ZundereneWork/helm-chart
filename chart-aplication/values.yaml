@@ -357,7 +357,7 @@ kavita:
   Ingress:
     Enable: true
     Host: kavita.thelmalouise.ddns.net
-    EnableOauth: true
+    EnableOauth: false
     prefix: ""
   Volumes:
         config:
