@@ -363,11 +363,12 @@ kavita:
         config:
           type: volumenClain
           mountPath: /data
-        manga:
+        books:
           type: nfs
-          mountPath: /manga
+          mountPath: /books
           server: 192.168.18.10
           path: /volume1/Multimedia/Libros
+        
 
 
 # calibre:
