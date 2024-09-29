@@ -28,7 +28,7 @@ on:
         
 jobs:
   Deploy_Up_Helm:
-    runs-on: arc-runner-set
+    runs-on: ${{ input.runner }}
     name: 🚀 Deploy up helm
     steps:
       - name: Checkout repository
