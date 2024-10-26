@@ -21,19 +21,12 @@ jobs:
       - name: Find All Chart Directories
         id: set-chart
         run: |
-          # Buscar carpetas que comienzan con "chart-"
-          folders=$(find . -type d -name 'chart-*' -printf '%P\n')
-
-          # Convertir la lista de carpetas en un array de JSON
-          json=$(echo "$folders" | jq -R . | jq -s .)
-
-          # Guardar en un archivo JSON
-          echo "$json" > chart-folders.json
-
-          echo "JSON generado en 'chart-folders.json':"
-          cat chart-folders.json
-
-          echo "chart-data=$json" >> $GITHUB_OUTPUT
+          chart_data=$(find . -type d -name "chart-*" | while read chart; do
+            release_name=$(basename "$chart" | sed 's/^chart-//')
+            echo "{\"chart_path\": \"$chart\", \"release_name\": \"$release_name\"}"
+          done | jq -s .)
+          echo $chart_data
+          echo "chart-data::$chart_data" >> $GITHUB_OUTPUT
 
       - name: Print Chart Data (Debugging)
         run: |
