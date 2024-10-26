@@ -5,14 +5,11 @@ on:
     branches:
       - main
   workflow_dispatch:
-    inputs:
-      runner:
-        type: string
-        default: self-hosted
 
 jobs:
   find-and-deploy-charts:
-    runs-on: ${{inputs.runner}}
+    runs-on: self-hosted
+
     outputs:
       chart_data: ${{ steps.set-chart.outputs.chart_data }}
       
