@@ -65,6 +65,8 @@ jobs:
       namespace: ${{ matrix.chart.release_name }}
       release_name: ${{ matrix.chart.release_name }}
       chart: ${{ matrix.chart.chart_path }}
+      runner: self-hosted
+
         
       
         
