@@ -25,7 +25,7 @@ jobs:
             release_name=$(basename "$chart" | sed 's/^chart-//')
             echo "{\"chart_path\": \"$chart\", \"release_name\": \"$release_name\"}"
           done | jq -s .)
-          echo "::set-output name=chart-data::$chart_data"
+          echo "::save-state name=chart-data::$chart_data"
 
       - name: Print Chart Data (Debugging)
         run: |
