@@ -23,7 +23,7 @@ jobs:
         run: |
           chart_data=$(find . -type d -name "chart-*" | while read chart; do
             release_name=$(basename "$chart" | sed 's/^chart-//')
-            echo "{\"chart_path\": \"$chart\", \"release_name\": \"$release_name\"}"
+            echo "$chart:{\"chart_path\": \"$chart\", \"release_name\": \"$release_name\"},"
           done | jq -s .)
           echo $chart_data
           echo "chart-data::$chart_data" >> $GITHUB_OUTPUT
