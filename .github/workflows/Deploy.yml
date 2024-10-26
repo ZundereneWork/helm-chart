@@ -30,16 +30,13 @@ jobs:
 
     
   deploy-charts:
-    needs: find-and-deploy-charts
-    runs-on: ubuntu-latest
+    needs: [find-and-deploy-charts]
     strategy:
       matrix:
         chart-path: ${{ fromJson(needs.find-and-deploy-charts.outputs.chart-paths) }}
-    steps:
-      - name: Call Deploy Helm Reusable Workflow
-        uses: ZundereneWork/reusables-workflow/.github/workflows/deploy-helm.yml@main
-        with:
-          chart-path: ${{ matrix.chart-path }}
+    uses: ZundereneWork/reusables-workflow/.github/workflows/deploy-helm.yml@main
+    with:
+      chart-path: ${{ matrix.chart-path }}
         
       
         
