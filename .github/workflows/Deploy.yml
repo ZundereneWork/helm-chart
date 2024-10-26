@@ -35,7 +35,7 @@ jobs:
     needs: [find-and-deploy-charts]
     strategy:
       matrix:
-        chart-path: ${{ fromJson(needs.find-and-deploy-charts.outputs.chart_data) }}
+        chart: ${{ fromJson(needs.find-and-deploy-charts.outputs.chart_data) }}
     uses: ZundereneWork/reusables-workflow/.github/workflows/deploy-helm.yml@main
     with:
       namespace: ${{ matrix.chart.release_name }}
