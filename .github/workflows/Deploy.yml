@@ -21,11 +21,28 @@ jobs:
       - name: Find All Chart Directories
         id: set-chart
         run: |
-          chart_data=$(find . -type d -name "chart-*" | while read chart; do
-            release_name=$(basename "$chart" | sed 's/^chart-//')
-            echo "$chart:{\"chart_path\": \"$chart\", \"release_name\": \"$release_name\"},"
-          done | jq -s .)
-          echo $chart_data
+          #!/bin/bash
+
+          # Crear un array vacío para almacenar los objetos JSON
+          json_array="[]"
+
+          # Buscar carpetas que comienzan con "chart-"
+          for folder in $(find . -type d -name 'chart-*' -printf '%P\n'); do
+            # Extraer el nombre del release (parte después de "chart-")
+            release_name="${folder#chart-}"
+
+            # Crear un objeto JSON para esta carpeta y release
+            folder_json=$(jq -n --arg folder "$folder" --arg release "$release_name" '{folder: $folder, release: $release}')
+
+            # Añadir el objeto al array JSON
+            json_array=$(echo "$json_array" | jq --argjson item "$folder_json" '. += [$item]')
+          done
+
+          # Guardar el array JSON en un archivo
+          echo "$json_array" > chart-folders.json
+
+          echo "JSON generado en 'chart-folders.json':"
+          cat chart-folders.json
           echo "chart-data::$chart_data" >> $GITHUB_OUTPUT
 
       - name: Print Chart Data (Debugging)
