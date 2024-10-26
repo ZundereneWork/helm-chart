@@ -21,7 +21,6 @@ jobs:
       - name: Find All Chart Directories
         id: set-chart
         run: |
-          #!/bin/bash
 
           # Crear un array vacío para almacenar los objetos JSON
           json_array="[]"
@@ -43,7 +42,7 @@ jobs:
 
           echo "JSON generado en 'chart-folders.json':"
           cat chart-folders.json
-          echo "chart-data=$chart_data" >> $GITHUB_OUTPUT
+          echo "chart-data=$json_array" >> $GITHUB_OUTPUT
 
       - name: Print Chart Data (Debugging)
         run: |
