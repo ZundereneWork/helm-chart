@@ -14,29 +14,33 @@ jobs:
   find-and-deploy-charts:
     runs-on: ${{inputs.runner}}
     outputs:
-      chart-paths: ${{ steps.set-chart-paths.outputs.chart-paths }}
+      chart_data: ${{ steps.set-chart.outputs.chart_data }}
+      
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
       - name: Find All Chart Directories
-        id: set-chart-paths
+        id: set-chart
         run: |
-          # Encuentra todas las carpetas que comienzan con "chart-" y guárdalas en un array
-          chart_paths=$(find . -type d -name "chart-*")
-          chart_paths=$(echo "${chart_paths}" | jq -R -s -c 'split("\n") | map(select(. != ""))')
-          echo "::set-output name=chart-paths::${chart_paths}"
+          chart_data=$(find . -type d -name "chart-*" | while read chart; do
+            release_name=$(basename "$chart" | sed 's/^chart-//')
+            echo "{\"chart_path\": \"$chart\", \"release_name\": \"$release_name\"}"
+          done | jq -s .)
+          echo "::set-output name=chart-data::$chart_data"
 
     
   deploy-charts:
     needs: [find-and-deploy-charts]
     strategy:
       matrix:
-        chart-path: ${{ fromJson(needs.find-and-deploy-charts.outputs.chart-paths) }}
+        chart-path: ${{ fromJson(needs.find-and-deploy-charts.outputs.chart_data) }}
     uses: ZundereneWork/reusables-workflow/.github/workflows/deploy-helm.yml@main
     with:
-      chart-path: ${{ matrix.chart-path }}
+      namespace: ${{ matrix.chart_data.release_name }}
+      release_name: ${{ matrix.release_name }}
+      chart: ${{ matrix.chart_path }}
         
       
         
