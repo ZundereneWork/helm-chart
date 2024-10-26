@@ -39,8 +39,8 @@ jobs:
     uses: ZundereneWork/reusables-workflow/.github/workflows/deploy-helm.yml@main
     with:
       namespace: ${{ matrix.chart_data.release_name }}
-      release_name: ${{ matrix.release_name }}
-      chart: ${{ matrix.chart_path }}
+      release_name: ${{ matrix.chart_data.release_name }}
+      chart: ${{ matrix.chart_data.chart_path }}
         
       
         
