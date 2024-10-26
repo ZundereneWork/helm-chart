@@ -42,7 +42,7 @@ jobs:
 
           echo "JSON generado en 'chart-folders.json':"
           cat  chart-folders.json
-          echo "chart-data=$json_array" >> "$GITHUB_OUTPUT"
+          echo "chart-data=$(jq -c . < ./config.json)" >> $GITHUB_OUTPUT
 
       - name: Print Chart Data (Debugging)
         run: |
