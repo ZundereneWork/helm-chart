@@ -27,6 +27,16 @@ jobs:
           done | jq -s .)
           echo "::set-output name=chart-data::$chart_data"
 
+      - name: Print Chart Data (Debugging)
+        run: |
+           echo "Chart Data: ${{ steps.set-chart.outputs.chart-data }}"
+  
+      - name: Fail if Chart Data is Empty
+        if: ${{ steps.set-chart.outputs.chart-data == '[]' || steps.set-chart.outputs.chart-data == '' }}
+        run: |
+            echo "No charts found with the prefix 'chart-'. Exiting."
+            exit 1
+
     
   deploy-charts:
     needs: [find-and-deploy-charts]
