@@ -25,7 +25,7 @@ jobs:
             release_name=$(basename "$chart" | sed 's/^chart-//')
             echo "{\"chart_path\": \"$chart\", \"release_name\": \"$release_name\"}"
           done | jq -s .)
-          echo "::name=chart-data::$chart_data" >> $GITHUB_OUTPUT
+          echo "chart-data=$chart_data" >> $GITHUB_OUTPUT
 
       - name: Print Chart Data (Debugging)
         run: |
