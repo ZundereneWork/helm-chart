@@ -42,14 +42,14 @@ jobs:
 
           echo "JSON generado en 'chart-folders.json':"
           cat  chart-folders.json
-          echo "chart-data=$(jq -c . < ./chart-folders.json)" >> $GITHUB_OUTPUT
+          echo "chart_data=$(jq -c . < ./chart-folders.json)" >> $GITHUB_OUTPUT
 
       - name: Print Chart Data (Debugging)
         run: |
-           echo "Chart Data: ${{ steps.set-chart.outputs.chart-data }}"
+           echo "Chart Data: ${{ steps.set-chart.outputs.chart_data }}"
   
       - name: Fail if Chart Data is Empty
-        if: ${{ steps.set-chart.outputs.chart-data == '[]' || steps.set-chart.outputs.chart-data == '' }}
+        if: ${{ steps.set-chart.outputs.chart_data == '[]' || steps.set-chart.outputs.chart_data == '' }}
         run: |
             echo "No charts found with the prefix 'chart-'. Exiting."
             exit 1
