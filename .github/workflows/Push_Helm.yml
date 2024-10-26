@@ -1,9 +1,0 @@
-name: Build and Push helm
-
-on:
-   push: 
-
-jobs:  
-  Push_Helm:
-    uses: ZundereneWork/actions-workflow/.github/workflows/push-helm.yml@main
-    secrets: inherit
