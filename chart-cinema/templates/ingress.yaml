@@ -1,6 +1,5 @@
 {{- range $key, $val := .Values }}
 {{- if eq $val.Ingress.Enable true }}
-
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
