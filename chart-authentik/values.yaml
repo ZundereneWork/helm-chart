@@ -194,7 +194,7 @@ authentik:
   redis:
     enable: true
     host: 192.168.18.10
-    password: "hhLT3BmwdKH7Ek"
+   # password: "hhLT3BmwdKH7Ek"
 
 
 blueprints:
