@@ -341,33 +341,33 @@ flaresolverr:
   Ingress:
     Enable: false
 
-kavita:
-  Image: 'jvmilazz0/kavita:latest'
-  Service:
-      port: 5000
+# kavita:
+#   Image: 'jvmilazz0/kavita:latest'
+#   Service:
+#       port: 5000
 
-  PVC:
-      storageClassName: microk8s-hostpath
-      capacity: 1Gi
-      Enable: true
-  readinessProbe: 
-    Seconds: 30
-  livenessProbe: 
-    Seconds: 30
-  Ingress:
-    Enable: true
-    Host: kavita.thelmalouise.ddns.net
-    EnableOauth: false
-    prefix: ""
-  Volumes:
-        config:
-          type: volumenClain
-          mountPath: /data
-        books:
-          type: nfs
-          mountPath: /books
-          server: 192.168.18.10
-          path: /volume1/Multimedia/Libros
+#   PVC:
+#       storageClassName: microk8s-hostpath
+#       capacity: 1Gi
+#       Enable: true
+#   readinessProbe: 
+#     Seconds: 30
+#   livenessProbe: 
+#     Seconds: 30
+#   Ingress:
+#     Enable: true
+#     Host: kavita.thelmalouise.ddns.net
+#     EnableOauth: false
+#     prefix: ""
+#   Volumes:
+#         config:
+#           type: volumenClain
+#           mountPath: /data
+#         books:
+#           type: nfs
+#           mountPath: /books
+#           server: 192.168.18.10
+#           path: /volume1/Multimedia/Libros
         
 
 
