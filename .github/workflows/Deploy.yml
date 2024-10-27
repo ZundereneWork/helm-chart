@@ -66,6 +66,7 @@ jobs:
       release_name: ${{ matrix.chart.release_name }}
       chart: ${{ matrix.chart.folder }}
       runner: self-hosted
+    secrets: inherit
 
         
       
