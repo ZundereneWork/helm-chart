@@ -62,8 +62,8 @@ jobs:
         chart: ${{ fromJson(needs.find-and-deploy-charts.outputs.chart_data) }}
     uses: ZundereneWork/reusables-workflow/.github/workflows/deploy-helm.yml@main
     with:
-      namespace: ${{ matrix.chart.release_name }}
-      release_name: ${{ matrix.chart.release_name }}
+      namespace: ${{ matrix.chart.folder }}
+      release_name: ${{ matrix.chart.release }}
       chart: ${{ matrix.chart.folder }}
       runner: self-hosted
     secrets: inherit
