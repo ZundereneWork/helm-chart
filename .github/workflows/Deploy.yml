@@ -64,7 +64,7 @@ jobs:
     with:
       namespace: ${{ matrix.chart.release_name }}
       release_name: ${{ matrix.chart.release_name }}
-      chart: ${{ matrix.chart.chart_path }}
+      chart: ${{ matrix.chart.folder }}
       runner: self-hosted
 
         
