@@ -567,7 +567,7 @@ server:
     ingressClassName: "nginx"
     # -- List of ingress hosts
     hosts: 
-      - authentik.thelmalouise.ddns.net
+      - oauth.thelmalouise.ddns.net
 
       # - authentik.domain.tld
 
