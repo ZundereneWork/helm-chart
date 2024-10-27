@@ -1,0 +1,25 @@
+global:
+  env: 
+    - name: "AUTHENTIK_REDIS__DB"
+      value: "1"
+authentik:
+  secret_key: "ZY80nY1vhe8CBRd15jZR9Ph3S4PXyunw"
+
+  postgresql:
+    enable: true
+    host: 192.168.18.10
+    user: oauth
+    password: XDzLVzM5fjrQqw
+    port: 5433
+  redis:
+    enable: true
+    host: 192.168.18.10
+    password: "hhLT3BmwdKH7Ek"
+
+server:
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    hosts:
+      - authentik.thelmalouise.ddns.net
+
