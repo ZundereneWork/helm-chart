@@ -16,7 +16,7 @@ metadata:
     nginx.ingress.kubernetes.io/auth-snippet: |
       proxy_set_header X-Forwarded-Host $http_host;
     nginx.ingress.kubernetes.io/auth-url: >-
-      http://ak-oauth.authentik.svc.cluster.local:9000/outpost.goauthentik.io/auth/nginx
+      http://ak-outpost-oauth.authentik.svc.cluster.local:9000/outpost.goauthentik.io/auth/nginx
     {{- end }}
 spec:
   ingressClassName: nginx
