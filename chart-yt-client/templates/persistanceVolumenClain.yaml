@@ -1,0 +1,18 @@
+{{- range $key, $val := .Values }}
+{{- if eq $val.PVC.Enable true }}
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: pvc-{{$key}}
+  labels:
+    nombre: {{ $key }}
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: {{ $val.PVC.capacity}}
+  storageClassName: {{ $val.PVC.storageClassName}}
+---
+{{- end }}
+{{- end }}
