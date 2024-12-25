@@ -673,9 +673,7 @@ worker:
   # -- Environment variables to pass to the authentik worker. Does not apply to GeoIP
   # See configuration options at https://goauthentik.io/docs/installation/configuration/
   # @default -- `[]` (See [values.yaml])
-  env: 
-     - name: 'AUTHENTIK_DEBUG'
-       value: 'true'
+  env: []
     # - name: AUTHENTIK_VAR_OTHER
     #   valueFrom:
     #     secretKeyRef:
