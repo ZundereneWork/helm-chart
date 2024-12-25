@@ -23,9 +23,9 @@ global:
   # Default image used by all authentik components. For GeoIP configuration, see the geoip values below.
   image:
     # -- If defined, a repository applied to all authentik deployments
-    repository: ghcr.io/goauthentik/server
+    repository: ghcr.io/goauthentik/dev-server
     # -- Overrides the global authentik whose default is the chart appVersion
-    tag: ""
+    tag: "gh-version-2024.12 "
     # -- If defined, an image digest applied to all authentik deployments
     digest: ""
     # -- If defined, an imagePullPolicy applied to all authentik deployments
