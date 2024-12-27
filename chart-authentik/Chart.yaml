@@ -1,7 +1,7 @@
 ---
 apiVersion: v2
-version: 2024.12.1
-appVersion: 2024.12.1
+version: 2024.8.3
+appVersion: 2024.8.3
 name: authentik
 description: authentik is an open-source Identity Provider focused on flexibility and versatility
 type: application
