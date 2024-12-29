@@ -265,10 +265,10 @@ server:
   image:
     # -- Repository to use to the authentik server
     # @default -- `""` (defaults to global.image.repository)
-    repository: "" # defaults to global.image.repository
+    repository: "ghcr.io/goauthentik/dev-server" # defaults to global.image.repository
     # -- Tag to use to the authentik server
     # @default -- `""` (defaults to global.image.tag)
-    tag: "" # defaults to global.image.tag
+    tag: "gh-version-2024.12" # defaults to global.image.tag
     # -- Digest to use to the authentik server
     # @default -- `""` (defaults to global.image.digest)
     digest: "" # defaults to global.image.digest
