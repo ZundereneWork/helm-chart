@@ -12,7 +12,7 @@ sonarr:
     Seconds: 30
   Ingress:
     Enable: true
-    Host: sonarr.thelmalouise.ddns.net
+    Host: sonarr.thelmalouise.corp
     EnableOauth: true
     prefix: ""
   Volumes:
@@ -68,7 +68,7 @@ radarr:
     Seconds: 30
   Ingress:
     Enable: true
-    Host: radarr.thelmalouise.ddns.net
+    Host: radarr.thelmalouise.corp
     EnableOauth: true
     prefix: ""
   Volumes:
@@ -122,7 +122,7 @@ readarr:
     Seconds: 30
   Ingress:
     Enable: true
-    Host: readarr.thelmalouise.ddns.net
+    Host: readarr.thelmalouise.corp
     EnableOauth: true
     prefix: ""
   Volumes:
@@ -177,7 +177,7 @@ prowlarr:
     Seconds: 30
   Ingress:
     Enable: true
-    Host: prowlarr.thelmalouise.ddns.net
+    Host: prowlarr.thelmalouise.corp
     EnableOauth: true
     prefix: ""
   Volumes:
@@ -282,7 +282,7 @@ bazarr:
       POSTGRES_DB: bazarr
   Ingress:
     Enable: true
-    Host: bazarr.thelmalouise.ddns.net
+    Host: bazarr.thelmalouise.corp
     EnableOauth: true
     prefix: ""
   Volumes:
@@ -314,7 +314,7 @@ jackett:
     Seconds: 30
   Ingress:
     Enable: true
-    Host: jackett.thelmalouise.ddns.net
+    Host: jackett.thelmalouise.corp
     EnableOauth: true
     prefix: ""
   Volumes:
