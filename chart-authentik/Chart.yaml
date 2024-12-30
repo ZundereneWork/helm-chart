@@ -61,7 +61,7 @@ annotations:
       image: ghcr.io/goauthentik/server:2024.12.1
       whitelisted: true
     - name: authentik-outpost-proxy
-      image: ghcr.io/goauthentik/proxy:2024.12.1
+      image: ghcr.io/goauthentik/dev-proxy:gh-version-2024.12
       whitelisted: true
     - name: authentik-outpost-ldap
       image: ghcr.io/goauthentik/ldap:2024.12.1
