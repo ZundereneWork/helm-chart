@@ -1,0 +1,33 @@
+config:
+  clientID: "d4e7911c2b9d26fb29cd25c80438b97d"
+  clientSecret: "qSP6KG9SYosTL2cYfWYj1aik76Pol9LG"
+  cookieSecret: "LZ5taaCOhFyk6UgytcIAHg=="
+  configFile: |
+    email_domains = [ ".thelmalouise.ddns.net" ]
+    upstreams = [ "file:///dev/null" ]
+    pass_access_token= true                          # Pasa el Access Token al backend
+    skip_provider_button = true
+    provider="oidc" 
+    oidc_issuer_url = "https://ns.thelmalouise.ddns.net/webman/sso"
+    redirect_url = "https://oauth.thelmalouise.ddns.net/oauth2/callback"
+    scope= "openid email profile"
+    
+extraArgs:
+  - --whitelist-domain=.thelmalouise.ddns.net
+  - --cookie-secure=true
+  - --cookie-httponly=true
+  - --cookie-domain=.thelmalouise.ddns.net
+  - --cookie-expire=1h
+  - --cookie-refresh=30m
+ingress:
+  enabled: true
+  className: "nginx"
+  hosts:
+    - "oauth.thelmalouise.ddns.net"
+  paths:
+    - path: "/oauth2"
+      pathType: Prefix
+  tls:
+    - secretName: oauth2-proxy-cert
+      hosts:
+        - "oauth.thelmalouise.ddns.net"
