@@ -33,7 +33,7 @@ spec:
 {{- end }}
           - path: {{ $ingressPath }}
             {{- if eq "true" ( include "ingress.supportsPathType" $ ) }}
-            pathType: {{ $ingressPathType }}
+            pathType: ImplementationSpecific
             {{- end }}
             backend: {{- include "ingress.backend" ( dict "serviceName" $serviceName "servicePort" $servicePort "context" $ )  | nindent 14 }}
     {{- end -}}
