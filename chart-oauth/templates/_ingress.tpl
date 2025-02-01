@@ -29,7 +29,7 @@ Where the dict must contain the following entries:
 - `context` {Dict} - (Parent) Context for the template evaluation required for the API version detection.
 */}}
 {{- define "ingress.backend" -}}
-{{- $apiVersion := networking.k8s.io/v1 -}}
+{{- $apiVersion := ( include "capabilities.ingress.apiVersion" .context ) -}}
 {{- if or ( eq $apiVersion "extensions/v1beta1" ) ( eq $apiVersion "networking.k8s.io/v1beta1" ) -}}
 serviceName: {{ .serviceName }}
 servicePort: {{ .servicePort }}
