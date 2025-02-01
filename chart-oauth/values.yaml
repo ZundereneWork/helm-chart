@@ -13,7 +13,7 @@ namespaceOverride: ""
 # Force the target Kubernetes version (it uses Helm `.Capabilities` if not set).
 # This is especially useful for `helm template` as capabilities are always empty
 # due to the fact that it doesn't query an actual cluster
-kubeVersion: 
+kubeVersion: 1.18-0
 
 config:
   clientID: "d4e7911c2b9d26fb29cd25c80438b97d"
@@ -43,7 +43,7 @@ ingress:
     - "oauth.thelmalouise.ddns.net"
   paths:
     - path: "/oauth2"
-      pathType: Prefix
+      pathType: ImplementationSpecific
   tls:
     - secretName: oauth2-proxy-cert
       hosts:
