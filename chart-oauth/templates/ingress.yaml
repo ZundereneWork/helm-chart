@@ -35,7 +35,11 @@ spec:
             {{- if eq "true" ( include "ingress.supportsPathType" $ ) }}
             pathType: ImplementationSpecific
             {{- end }}
-            backend: {{- include "ingress.backend" ( dict "serviceName" $serviceName "servicePort" $servicePort "context" $ )  | nindent 14 }}
+            backend: 
+              service:
+                name: oauth2-proxy
+                port:
+                  number: 80
     {{- end -}}
   {{- if .Values.ingress.tls }}
   tls:
