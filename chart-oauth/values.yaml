@@ -20,7 +20,7 @@ config:
   clientSecret: "qSP6KG9SYosTL2cYfWYj1aik76Pol9LG"
   cookieSecret: "LZ5taaCOhFyk6UgytcIAHg=="
   configFile: |
-    email_domains = [ ".thelmalouise.ddns.net" ]
+    email_domains = [ ".thelmalouise.ddns.net", "gmail.com" ]
     upstreams = [ "file:///dev/null" ]
     pass_access_token= true                          # Pasa el Access Token al backend
     skip_provider_button = true
