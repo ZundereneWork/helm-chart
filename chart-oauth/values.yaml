@@ -347,7 +347,7 @@ sessionStorage:
       # Redis sentinel master name
       masterName: ""
       # List of Redis sentinel connection URLs (e.g. `["redis://127.0.0.1:8000", "redis://127.0.0.1:8000"]`)
-      connectionUrls: []
+      connectionUrls: ["redis://192.168.18.10:6379"]
 
 
 metrics:
