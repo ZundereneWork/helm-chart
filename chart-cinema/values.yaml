@@ -234,9 +234,6 @@ jellyfin:
   Service:
       port: 8096
 
-  env:
-    NVIDIA_DRIVER_CAPABILITIES: "compute,video,utility"
- 
   PVC:
       storageClassName: microk8s-hostpath
       capacity: 1Gi

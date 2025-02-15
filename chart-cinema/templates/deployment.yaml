@@ -53,6 +53,10 @@ spec:
               exec:
                 command: ['sh', '-c', 'cp /config_example/config.xml /config/config.xml'] 
           {{- end }}
+          {{- if eq $key "jellyfin"  }}
+            limits:
+              amd.com/gpu: 1 # requesting 1 GPU
+          {{- end }}
 
       volumes:
       {{- range $name, $data :=  $val.Volumes }}
