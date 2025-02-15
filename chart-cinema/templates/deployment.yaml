@@ -46,17 +46,18 @@ spec:
               port: {{  $val.Service.port }}
             initialDelaySeconds: {{ $val.livenessProbe.Seconds }}
             periodSeconds: 30
-          resources: {}
+          {{- if eq $key "jellyfin"  }}
+          resources:
+            limits:
+              amd.com/gpu: 1 # requesting 1 GPU
+          {{- end }}
           {{- if or (eq $key "sonarr") ( eq $key "radarr") ( eq $key "prowlarr") (eq $key "readarr")  }}
           lifecycle:
             postStart:
               exec:
                 command: ['sh', '-c', 'cp /config_example/config.xml /config/config.xml'] 
           {{- end }}
-          {{- if eq $key "jellyfin"  }}
-            limits:
-              amd.com/gpu: 1 # requesting 1 GPU
-          {{- end }}
+          
 
       volumes:
       {{- range $name, $data :=  $val.Volumes }}
