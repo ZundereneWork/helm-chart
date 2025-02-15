@@ -50,7 +50,7 @@ sonarr:
         <AnalyticsEnabled>False</AnalyticsEnabled>
         <PostgresUser>sonarr</PostgresUser>
         <PostgresPassword>buNCY%T!!8DRW#</PostgresPassword>
-        <PostgresPort>5432</PostgresPort>
+        <PostgresPort>5433</PostgresPort>
         <PostgresHost>192.168.18.10</PostgresHost>
       </Config>
   
@@ -105,7 +105,7 @@ radarr:
         <UpdateMechanism>Docker</UpdateMechanism>
         <PostgresUser>radarr</PostgresUser>
         <PostgresPassword>Bvu!gzYJfaa9kZ</PostgresPassword>
-        <PostgresPort>5432</PostgresPort>
+        <PostgresPort>5433</PostgresPort>
         <PostgresHost>192.168.18.10</PostgresHost>
       </Config>
 readarr:
@@ -159,7 +159,7 @@ readarr:
         <UpdateMechanism>Docker</UpdateMechanism>
         <PostgresUser>readarr</PostgresUser>
         <PostgresPassword>us7fp2QMfvDsUg</PostgresPassword>
-        <PostgresPort>5432</PostgresPort>
+        <PostgresPort>5433</PostgresPort>
         <PostgresHost>192.168.18.10</PostgresHost>
       </Config>
 
@@ -204,7 +204,7 @@ prowlarr:
         <UpdateMechanism>Docker</UpdateMechanism>
         <PostgresUser>prowlarr</PostgresUser>
         <PostgresPassword>GaviBe94XG4$7</PostgresPassword>
-        <PostgresPort>5432</PostgresPort>
+        <PostgresPort>5433</PostgresPort>
         <PostgresHost>192.168.18.10</PostgresHost>
       </Config>
 jellyseerr:
