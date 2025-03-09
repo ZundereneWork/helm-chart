@@ -46,11 +46,11 @@ spec:
               port: {{  $val.Service.port }}
             initialDelaySeconds: {{ $val.livenessProbe.Seconds }}
             periodSeconds: 30
-          {{- if eq $key "jellyfin"  }}
-          resources:
-            limits:
-              amd.com/gpu: 1 # requesting 1 GPU
-          {{- end }}
+          # {{- if eq $key "jellyfin"  }}
+          # resources:
+          #   limits:
+          #     amd.com/gpu: 1 # requesting 1 GPU
+          # {{- end }}
           {{- if or (eq $key "sonarr") ( eq $key "radarr") ( eq $key "prowlarr") (eq $key "readarr")  }}
           lifecycle:
             postStart:

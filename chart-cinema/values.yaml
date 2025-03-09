@@ -22,12 +22,12 @@ sonarr:
         serie:
           type: nfs
           mountPath: /tv
-          server: 192.168.18.10
+          server: 10.10.0.177
           path: /volume1/Multimedia/Series
         descargas:
           type: nfs 
           mountPath: /downloads
-          server: 192.168.18.10
+          server: 10.10.0.177
           path: /volume1/Descargas
   ConfigMap:
     config.xml: |
@@ -51,7 +51,7 @@ sonarr:
         <PostgresUser>sonarr</PostgresUser>
         <PostgresPassword>buNCY%T!!8DRW#</PostgresPassword>
         <PostgresPort>5433</PostgresPort>
-        <PostgresHost>192.168.18.10</PostgresHost>
+        <PostgresHost>10.10.0.177</PostgresHost>
       </Config>
   
 radarr:
@@ -78,12 +78,12 @@ radarr:
         serie:
           type: nfs
           mountPath: /movies
-          server: 192.168.18.10
+          server: 10.10.0.177
           path: /volume1/Multimedia/Peliculas
         descargas:
           type: nfs 
           mountPath: /downloads
-          server: 192.168.18.10
+          server: 10.10.0.177
           path: /volume1/Descargas
   ConfigMap:
     config.xml: |
@@ -106,7 +106,7 @@ radarr:
         <PostgresUser>radarr</PostgresUser>
         <PostgresPassword>Bvu!gzYJfaa9kZ</PostgresPassword>
         <PostgresPort>5433</PostgresPort>
-        <PostgresHost>192.168.18.10</PostgresHost>
+        <PostgresHost>10.10.0.177</PostgresHost>
       </Config>
 readarr:
   Image: 'lscr.io/linuxserver/readarr:develop' 
@@ -132,12 +132,12 @@ readarr:
         serie:
           type: nfs
           mountPath: /books
-          server: 192.168.18.10
+          server: 10.10.0.177
           path: /volume1/Multimedia/Libros
         descargas:
           type: nfs 
           mountPath: /downloads
-          server: 192.168.18.10
+          server: 10.10.0.177
           path: /volume1/Descargas
   ConfigMap:
     config.xml: |
@@ -160,7 +160,7 @@ readarr:
         <PostgresUser>readarr</PostgresUser>
         <PostgresPassword>us7fp2QMfvDsUg</PostgresPassword>
         <PostgresPort>5433</PostgresPort>
-        <PostgresHost>192.168.18.10</PostgresHost>
+        <PostgresHost>10.10.0.177</PostgresHost>
       </Config>
 
 prowlarr:
@@ -205,7 +205,7 @@ prowlarr:
         <PostgresUser>prowlarr</PostgresUser>
         <PostgresPassword>GaviBe94XG4$7</PostgresPassword>
         <PostgresPort>5433</PostgresPort>
-        <PostgresHost>192.168.18.10</PostgresHost>
+        <PostgresHost>10.10.0.177</PostgresHost>
       </Config>
 jellyseerr:
   Image: 'fallenbagel/jellyseerr'  
@@ -253,12 +253,12 @@ jellyfin:
         peliculas:
           type: nfs
           mountPath: /movies
-          server: 192.168.18.10
+          server: 10.10.0.177
           path: /volume1/Multimedia/Peliculas
         serie:
           type: nfs 
           mountPath: /tv
-          server: 192.168.18.10
+          server: 10.10.0.177
           path: /volume1/Multimedia/Series
 bazarr:
   Image: 'lscr.io/linuxserver/bazarr:latest'
@@ -289,12 +289,12 @@ bazarr:
         peliculas:
           type: nfs
           mountPath: /movies
-          server: 192.168.18.10
+          server: 10.10.0.177
           path: /volume1/Multimedia/Peliculas
         serie:
           type: nfs 
           mountPath: /tv
-          server: 192.168.18.10
+          server: 10.10.0.177
           path: /volume1/Multimedia/Series
 jackett:
   Image: 'lscr.io/linuxserver/jackett:latest'
@@ -321,7 +321,7 @@ jackett:
         descargas:
           type: nfs 
           mountPath: /downloads
-          server: 192.168.18.10
+          server: 10.10.0.177
           path: /volume1/Descargas
 flaresolverr:
   Image: 'ghcr.io/flaresolverr/flaresolverr:latest'
@@ -363,7 +363,7 @@ flaresolverr:
 #         books:
 #           type: nfs
 #           mountPath: /books
-#           server: 192.168.18.10
+#           server: 10.10.0.177
 #           path: /volume1/Multimedia/Libros
         
 
@@ -394,7 +394,7 @@ flaresolverr:
 #         books:
 #           type: nfs 
 #           mountPath: /books
-#           server: 192.168.18.10
+#           server: 10.10.0.177
 #           path: /volume1/Multimedia/Libros
         
 # ia:
@@ -443,12 +443,12 @@ flaresolverr:
 #         peliculas:
 #           type: nfs
 #           mountPath: /movies
-#           server: 192.168.18.10
+#           server: 10.10.0.177
 #           path: /volume1/Multimedia/Peliculas
 #         serie:
 #           type: nfs 
 #           mountPath: /tv
-#           server: 192.168.18.10
+#           server: 10.10.0.177
 #           path: /volume1/Multimedia/Series
 
 
