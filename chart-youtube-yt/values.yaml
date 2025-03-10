@@ -7,7 +7,7 @@ youtube:
     ytdl_use_local_db: 'false'
     write_ytdl_config: 'true'
     ytdl_multi_user_mode: true
-    #ytdl_auth_method: 'ldap'
+    ytdl_auth_method: 'ldap'
     ytdl_allow_registration: false
 
   PVC:
