@@ -187,13 +187,13 @@ authentik:
     # if unset and .Values.postgresql.enabled == true, will generate the default
     # @default -- `{{ .Release.Name }}-postgresql`
     enable: true
-    host: 10.10.0.177
+    host: 10.10.0.4
     user: oauth
     password: XDzLVzM5fjrQqw
     port: 5433
   redis:
     enable: true
-    host: 10.10.0.177
+    host: 10.10.0.4
    # password: "hhLT3BmwdKH7Ek"
 
 

@@ -3,7 +3,7 @@ youtube:
   Service:
       port: 17442
   env:
-    ytdl_mongodb_connection_string: 'mongodb://10.10.0.177:27017'
+    ytdl_mongodb_connection_string: 'mongodb://10.10.0.4:27017'
     ytdl_use_local_db: 'false'
     write_ytdl_config: 'true'
     ytdl_multi_user_mode: true
@@ -29,26 +29,26 @@ youtube:
         appdata:
           type: nfs 
           mountPath: /app/appdata
-          server: 10.10.0.177
+          server: 10.10.0.4
           path: /volume1/Multimedia/Youtube/appdata
         audio:
           type: nfs 
           mountPath: /app/audio
-          server: 10.10.0.177
+          server: 10.10.0.4
           path: /volume1/Multimedia/Youtube/audio
         video:
           type: nfs 
           mountPath: /app/video
-          server: 10.10.0.177
+          server: 10.10.0.4
           path: /volume1/Multimedia/Youtube/video
         subscriptions:
           type: nfs 
           mountPath: /app/subscriptions
-          server: 10.10.0.177
+          server: 10.10.0.4
           path: /volume1/Multimedia/Youtube/subscriptions
         users:
           type: nfs 
           mountPath: /app/users
-          server: 10.10.0.177
+          server: 10.10.0.4
           path: /volume1/Multimedia/Youtube/users
   

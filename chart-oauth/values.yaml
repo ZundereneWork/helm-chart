@@ -336,7 +336,7 @@ sessionStorage:
       connectionUrl: ""
     cluster:
       # List of Redis cluster connection URLs (e.g. `["redis://127.0.0.1:8000", "redis://127.0.0.1:8000"]`)
-      connectionUrls: ["redis://10.10.0.177:6379"]
+      connectionUrls: ["redis://10.10.0.4:6379"]
     sentinel:
       # Name of the Kubernetes secret containing the redis sentinel password value (see also `sessionStorage.redis.sentinel.passwordKey`). Default: `sessionStorage.redis.existingSecret`
       existingSecret: ""
@@ -347,7 +347,7 @@ sessionStorage:
       # Redis sentinel master name
       masterName: ""
       # List of Redis sentinel connection URLs (e.g. `["redis://127.0.0.1:8000", "redis://127.0.0.1:8000"]`)
-      connectionUrls: ["redis://10.10.0.177:6379"]
+      connectionUrls: ["redis://10.10.0.4:6379"]
 
 
 metrics:

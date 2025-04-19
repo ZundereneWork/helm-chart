@@ -16,5 +16,5 @@ Volumes:
       data:
         type: nfs
         mountPath: /data
-        server: 10.10.0.177
+        server: 10.10.0.4
         path: /volume1/Roms/data
