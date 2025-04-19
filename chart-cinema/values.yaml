@@ -235,7 +235,7 @@ jellyfin:
       port: 8096
 
   PVC:
-      storageClassName: microk8s-hostpath
+      storageClassName: nfs-csi
       capacity: 1Gi
       Enable: true
   readinessProbe: 
