@@ -3,7 +3,7 @@ sonarr:
   Service:
       port: 8989
   PVC:
-      storageClassName: microk8s-hostpath
+      storageClassName: nfs-csi
       capacity: 1Gi
       Enable: true
   readinessProbe: 
@@ -59,7 +59,7 @@ radarr:
   Service:
       port: 7878
   PVC:
-      storageClassName: microk8s-hostpath
+      storageClassName: nfs-csi
       capacity: 1Gi
       Enable: true
   readinessProbe: 
@@ -113,7 +113,7 @@ readarr:
   Service:
       port: 8787
   PVC:
-      storageClassName: microk8s-hostpath
+      storageClassName: nfs-csi
       capacity: 1Gi
       Enable: true
   readinessProbe: 
@@ -168,7 +168,7 @@ prowlarr:
   Service:
       port: 9696
   PVC:
-      storageClassName: microk8s-hostpath
+      storageClassName: nfs-csi
       capacity: 1Gi
       Enable: true
   readinessProbe: 
@@ -213,7 +213,7 @@ jellyseerr:
       port: 5055
 
   PVC:
-      storageClassName: microk8s-hostpath
+      storageClassName: nfs-csi
       capacity: 1Gi
       Enable: true
   readinessProbe: 
@@ -266,7 +266,7 @@ bazarr:
       port: 6767
 
   PVC:
-      storageClassName: microk8s-hostpath
+      storageClassName: nfs-csi
       capacity: 1Gi
       Enable: true
   readinessProbe: 
@@ -302,7 +302,7 @@ jackett:
       port: 9117
 
   PVC:
-      storageClassName: microk8s-hostpath
+      storageClassName: nfs-csi
       capacity: 1Gi
       Enable: true
   readinessProbe: 
@@ -328,7 +328,7 @@ flaresolverr:
   Service:
       port: 8191
   PVC:
-      storageClassName: microk8s-hostpath
+      storageClassName: nfs-csi
       capacity: 1Gi
       Enable: false
   readinessProbe: 
@@ -344,7 +344,7 @@ flaresolverr:
 #       port: 5000
 
 #   PVC:
-#       storageClassName: microk8s-hostpath
+#       storageClassName: nfs-csi
 #       capacity: 1Gi
 #       Enable: true
 #   readinessProbe: 
@@ -376,7 +376,7 @@ flaresolverr:
 #   env:
 #     DOCKER_MODS: "linuxserver/mods:universal-calibre"
 #   PVC:
-#       storageClassName:  microk8s-hostpath
+#       storageClassName:  nfs-csi
 #       capacity: 1Gi
 #       Enable: true
 #   readinessProbe: 
@@ -430,7 +430,7 @@ flaresolverr:
 
  
 #   PVC:
-#       storageClassName: microk8s-hostpath
+#       storageClassName: nfs-csi
 #       capacity: 1Gi
 #   Ingress:
 #     Enable: fase

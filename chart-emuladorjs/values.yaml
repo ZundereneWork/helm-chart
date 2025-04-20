@@ -4,7 +4,7 @@ Service:
     portWeb: 80
     portBack: 3000
 PVC:
-    storageClassName: microk8s-hostpath
+    storageClassName: nfs-csi
     capacity: 1Gi
 Ingress:
   Host: emulatorjs.thelmalouise.ddns.net

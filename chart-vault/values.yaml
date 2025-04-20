@@ -3,7 +3,7 @@ vaultwarden:
   Service:
       port: 80
   PVC:
-      storageClassName: microk8s-hostpath
+      storageClassName: nfs-csi
       capacity: 1Gi
       Enable: true
   Ingress:

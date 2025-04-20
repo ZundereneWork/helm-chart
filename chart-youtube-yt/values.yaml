@@ -11,7 +11,7 @@ youtube:
     ytdl_allow_registration: false
 
   PVC:
-      storageClassName:  microk8s-hostpath
+      storageClassName:  nfs-csi
       capacity: 1Gi
       Enable: true
   readinessProbe: 
